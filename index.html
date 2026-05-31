@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Certificate Generator Online | Internship, Training & Course Certificates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Cinzel:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+/* ─── APP SHELL ─────────────────────────────────────── */
+:root {
+  --bg:#f0ede7; --bg2:#e8e3db; --sur:#fff; --sur2:#faf8f5;
+  --brd:#ddd8d0; --txt:#1c1814; --txt2:#6b6258; --txt3:#a49e96;
+  --gld:#c9a84c; --gld2:#a07828; --gld-bg:#fdf5e0; --gld-brd:#e8d48c;
+  --r:14px; --sh:0 4px 24px rgba(0,0,0,.09);
+}
+[data-theme=dark]{
+  --bg:#0e0c09; --bg2:#1a1813; --sur:#201d18; --sur2:#28251e;
+  --brd:#3a3628; --txt:#f0ebe2; --txt2:#9a9488; --txt3:#5c5850;
+  --gld:#d4a84c; --gld2:#e8c060; --gld-bg:#1c1808; --gld-brd:#4a3c18;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;transition:background .3s,color .3s}
+input,select,textarea,button{font-family:'DM Sans',sans-serif}
+
+/* ─── HEADER ──────────────────────────────────────── */
+header{position:sticky;top:0;z-index:200;background:var(--sur);border-bottom:1px solid var(--brd);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;backdrop-filter:blur(12px)}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.logo-mark{width:32px;height:32px;background:linear-gradient(135deg,#c9a84c,#a07828);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 2px 8px rgba(180,140,40,.35)}
+.logo-name{font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--txt);letter-spacing:.5px}
+.logo-name span{color:var(--gld)}
+.theme-btn{width:34px;height:34px;border-radius:8px;border:1px solid var(--brd);background:var(--sur2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--txt2);transition:all .18s}
+.theme-btn:hover{background:var(--bg2)}
+
+/* ─── HERO ────────────────────────────────────────── */
+.hero{text-align:center;padding:42px 20px 28px;max-width:620px;margin:0 auto}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--gld-bg);border:1px solid var(--gld-brd);border-radius:40px;padding:4px 14px;font-size:11px;font-weight:600;color:var(--gld);letter-spacing:.5px;margin-bottom:14px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,48px);font-weight:700;line-height:1.08;margin-bottom:10px}
+.hero h1 em{color:var(--gld);font-style:italic}
+.hero p{font-size:14px;color:var(--txt2);line-height:1.7;max-width:460px;margin:0 auto}
+
+/* ─── SECTIONS ────────────────────────────────────── */
+.sec{max-width:1160px;margin:0 auto;padding:0 20px 22px}
+.sec-lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.pill-row{display:flex;gap:8px;flex-wrap:wrap}
+.pill{padding:9px 18px;border-radius:40px;border:1.5px solid var(--brd);background:var(--sur);font-size:13px;font-weight:500;color:var(--txt2);cursor:pointer;transition:all .18s;white-space:nowrap}
+.pill:hover{border-color:var(--gld);color:var(--gld)}
+.pill.on{background:var(--gld);border-color:var(--gld);color:#fff;box-shadow:0 4px 14px rgba(201,168,76,.35)}
+
+/* ─── TEMPLATE STRIP ──────────────────────────────── */
+.tpl-strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.tpl-strip::-webkit-scrollbar{display:none}
+.tpl-card{flex-shrink:0;width:110px;cursor:pointer;border-radius:10px;overflow:hidden;border:2px solid var(--brd);transition:all .2s;background:var(--sur)}
+.tpl-card:hover{border-color:var(--gld);transform:translateY(-2px);box-shadow:var(--sh)}
+.tpl-card.on{border-color:var(--gld);box-shadow:0 0 0 2px var(--gld)}
+.tpl-thumb{height:68px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;letter-spacing:.5px}
+.tpl-name{text-align:center;padding:6px 4px;font-size:10px;font-weight:600;color:var(--txt2);border-top:1px solid var(--brd)}
+
+/* ─── MAIN GRID ───────────────────────────────────── */
+.main{display:grid;grid-template-columns:360px 1fr;gap:20px;max-width:1160px;margin:0 auto;padding:0 20px 60px}
+@media(max-width:840px){.main{grid-template-columns:1fr}}
+
+/* ─── FORM CARD ───────────────────────────────────── */
+.card{background:var(--sur);border:1px solid var(--brd);border-radius:var(--r);overflow:hidden}
+.card-hdr{padding:14px 18px;border-bottom:1px solid var(--brd);display:flex;align-items:center;gap:9px}
+.card-icon{width:26px;height:26px;border-radius:6px;background:var(--gld-bg);display:flex;align-items:center;justify-content:center;font-size:13px}
+.card-title{font-size:13px;font-weight:600}
+.card-body{padding:18px}
+.fg{margin-bottom:13px}
+.fg label{display:block;font-size:11px;font-weight:600;color:var(--txt2);margin-bottom:5px;letter-spacing:.2px}
+.req{color:var(--gld)}
+input[type=text],input[type=date],select,textarea{width:100%;padding:9px 12px;border-radius:8px;border:1.5px solid var(--brd);background:var(--sur2);color:var(--txt);font-size:13px;outline:none;transition:border-color .18s,box-shadow .18s}
+input:focus,select:focus,textarea:focus{border-color:var(--gld);box-shadow:0 0 0 3px rgba(201,168,76,.13)}
+textarea{resize:vertical;min-height:54px;line-height:1.5}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.row2{grid-template-columns:1fr}}
+.hint{font-size:10px;color:var(--txt3);margin-top:3px}
+.gen-strip{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap}
+.gbtn{padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--sur2);color:var(--gld);font-size:11px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+.gbtn:hover{background:var(--gld);color:#fff;border-color:var(--gld)}
+.divider{display:flex;align-items:center;gap:8px;margin:14px 0}
+.divider span{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--txt3);white-space:nowrap}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--brd)}
+.actions{display:flex;flex-direction:column;gap:9px;margin-top:16px}
+.btn-gold{padding:12px;border-radius:9px;border:none;background:linear-gradient(135deg,#c9a84c,#a07828);color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:.1px;box-shadow:0 3px 12px rgba(180,130,30,.3)}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(180,130,30,.4)}
+.btn-row{display:flex;gap:8px}
+.btn-out{flex:1;padding:11px;border-radius:9px;border:1.5px solid var(--brd);background:transparent;color:var(--txt);font-size:13px;font-weight:500;cursor:pointer;transition:all .18s}
+.btn-out:hover{border-color:var(--gld);color:var(--gld)}
+
+/* ─── PREVIEW PANEL ───────────────────────────────── */
+.preview-sticky{position:sticky;top:68px;align-self:start}
+.preview-wrap{background:var(--bg2);border-radius:10px;padding:10px;overflow:auto;max-height:78vh}
+.preview-wrap iframe{display:none}
+
+/* ─── MODAL ───────────────────────────────────────── */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:999;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(8px)}
+.overlay.open{display:flex}
+.modal{background:var(--sur);border-radius:var(--r);max-width:900px;width:100%;max-height:92vh;display:flex;flex-direction:column;box-shadow:0 20px 80px rgba(0,0,0,.4)}
+.modal-hdr{padding:14px 18px;border-bottom:1px solid var(--brd);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.modal-hdr-title{font-size:14px;font-weight:600}
+.modal-close{width:28px;height:28px;border-radius:6px;border:1px solid var(--brd);background:transparent;cursor:pointer;font-size:16px;color:var(--txt2);display:flex;align-items:center;justify-content:center}
+.modal-body{padding:16px;overflow:auto;flex:1}
+.modal-ftr{padding:12px 18px;border-top:1px solid var(--brd);display:flex;gap:8px;justify-content:flex-end;flex-shrink:0}
+.modal-ftr .btn-out{flex:unset;padding:10px 20px}
+.modal-ftr .btn-gold{flex:unset;padding:10px 22px;font-size:13px}
+
+/* ─── TOAST ───────────────────────────────────────── */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--txt);color:var(--bg);padding:11px 18px;border-radius:9px;font-size:13px;font-weight:500;z-index:9999;transform:translateY(60px);opacity:0;transition:all .28s;pointer-events:none}
+.toast.show{transform:translateY(0);opacity:1}
+
+@media(max-width:600px){
+  .hero,.sec,.main{padding-left:14px;padding-right:14px}
+  .hero{padding-top:28px;padding-bottom:18px}
+}
+
+/* ════════════════════════════════════════════════════
+   CERTIFICATE HTML TEMPLATES (rendered as DOM)
+   ════════════════════════════════════════════════════ */
+
+/* ── Shared cert shell ── */
+.cert-root{
+  width:842px; height:596px;
+  position:relative; overflow:hidden;
+  flex-shrink:0;
+  font-family:'EB Garamond',serif;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+
+/* ════ TEMPLATE A: ROYAL GOLD ════ */
+.cert-royal{background:linear-gradient(160deg,#0d0a1e 0%,#16123a 45%,#0d0a1e 100%)}
+.cert-royal .r-outerBorder{position:absolute;inset:14px;border:2px solid #b8922e;border-radius:2px}
+.cert-royal .r-innerBorder{position:absolute;inset:22px;border:1px solid rgba(184,146,46,.35)}
+.cert-royal .r-corner{position:absolute;width:48px;height:48px}
+.cert-royal .r-corner svg{width:48px;height:48px}
+.cert-royal .r-corner.tl{top:10px;left:10px}
+.cert-royal .r-corner.tr{top:10px;right:10px;transform:scaleX(-1)}
+.cert-royal .r-corner.bl{bottom:10px;left:10px;transform:scaleY(-1)}
+.cert-royal .r-corner.br{bottom:10px;right:10px;transform:scale(-1)}
+.cert-royal .r-bg-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(184,146,46,.07),transparent)}
+.cert-royal .r-content{position:absolute;inset:30px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;padding:10px 40px}
+.cert-royal .r-top{display:flex;flex-direction:column;align-items:center;gap:6px}
+.cert-royal .r-seal{width:52px;height:52px;border-radius:50%;border:1.5px solid #b8922e;display:flex;align-items:center;justify-content:center;background:rgba(184,146,46,.12);margin-bottom:2px}
+.cert-royal .r-org{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3.5px;color:#c9a84c;text-transform:uppercase;line-height:1.4}
+.cert-royal .r-goldline{width:200px;height:1px;background:linear-gradient(90deg,transparent,#b8922e,transparent);margin:6px auto}
+.cert-royal .r-certtype{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(184,146,46,.6);text-transform:uppercase}
+.cert-royal .r-mid{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;justify-content:center}
+.cert-royal .r-presenting{font-size:13px;color:rgba(220,200,160,.65);font-style:italic;letter-spacing:.5px}
+.cert-royal .r-name{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;font-style:italic;color:#f0d880;line-height:1;letter-spacing:-1px}
+.cert-royal .r-nameline{width:340px;height:1px;background:linear-gradient(90deg,transparent,rgba(184,146,46,.6),transparent);margin:4px auto}
+.cert-royal .r-detail1{font-size:13px;color:rgba(220,200,160,.75);line-height:1.7;max-width:500px}
+.cert-royal .r-highlight{color:#c9a84c;font-weight:600;font-style:italic;font-size:15px}
+.cert-royal .r-dates{font-size:11px;color:rgba(184,146,46,.55);letter-spacing:.5px}
+.cert-royal .r-bottom{width:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:0;padding-top:8px;border-top:1px solid rgba(184,146,46,.2)}
+.cert-royal .r-sig{display:flex;flex-direction:column;align-items:center;gap:4px}
+.cert-royal .r-sig-name{font-family:'Great Vibes',cursive;font-size:22px;color:rgba(220,200,160,.9);line-height:1}
+.cert-royal .r-sig-line{width:110px;height:1px;background:rgba(184,146,46,.4);margin:2px auto}
+.cert-royal .r-sig-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(184,146,46,.6);font-family:'DM Sans',sans-serif}
+.cert-royal .r-sig-title{font-size:9px;color:rgba(184,146,46,.4);font-family:'DM Sans',sans-serif}
+.cert-royal .r-center-seal{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 20px}
+.cert-royal .r-seal-circle{width:54px;height:54px;border-radius:50%;border:1.5px solid #b8922e;background:rgba(184,146,46,.1);display:flex;align-items:center;justify-content:center;font-size:22px}
+.cert-royal .r-certid{position:absolute;bottom:10px;right:24px;font-size:8px;color:rgba(184,146,46,.3);font-family:'DM Sans',sans-serif;letter-spacing:1px}
+.cert-royal .r-brand{position:absolute;bottom:10px;left:24px;font-size:8px;color:rgba(184,146,46,.3);font-family:'DM Sans',sans-serif;letter-spacing:1px}
+
+/* ════ TEMPLATE B: WAVE CRIMSON ════ */
+.cert-wave{background:#fff}
+.cert-wave .w-wave-bl{position:absolute;bottom:0;left:0;width:260px;height:200px}
+.cert-wave .w-wave-tr{position:absolute;top:0;right:0;width:220px;height:180px}
+.cert-wave .w-border{position:absolute;inset:26px;border:1px solid #e8d8c0}
+.cert-wave .w-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:30px 60px 22px;text-align:center}
+.cert-wave .w-top{display:flex;flex-direction:column;align-items:center;gap:4px}
+.cert-wave .w-logo-ring{width:50px;height:50px;border-radius:50%;border:2px solid #c0392b;display:flex;align-items:center;justify-content:center;font-size:20px;background:rgba(192,57,43,.06)}
+.cert-wave .w-org{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:#8a2010;text-transform:uppercase}
+.cert-wave .w-separator{display:flex;align-items:center;gap:10px;margin:4px 0}
+.cert-wave .w-sep-line{flex:1;height:1px;background:#e0c0a0}
+.cert-wave .w-sep-diamond{width:6px;height:6px;background:#c0392b;transform:rotate(45deg);flex-shrink:0}
+.cert-wave .w-title{font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:#1a0808;letter-spacing:2px;line-height:1.2}
+.cert-wave .w-mid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}
+.cert-wave .w-presenting{font-size:13px;color:#6a4a30;font-style:italic}
+.cert-wave .w-name{font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:600;font-style:italic;color:#1a0808;line-height:1;letter-spacing:-1px}
+.cert-wave .w-nameline{display:flex;align-items:center;gap:8px;width:100%;justify-content:center;margin:2px 0}
+.cert-wave .w-nameline-inner{width:200px;height:1.5px;background:linear-gradient(90deg,transparent,#c0392b,transparent)}
+.cert-wave .w-body{font-size:13px;color:#4a3020;line-height:1.8;max-width:500px}
+.cert-wave .w-role{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:#c0392b}
+.cert-wave .w-period{font-size:11px;color:#9a7858;letter-spacing:.3px}
+.cert-wave .w-bottom{width:100%;display:flex;justify-content:space-between;align-items:flex-end;padding-top:10px;border-top:1px solid #f0e0c8}
+.cert-wave .w-sig-col{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:140px}
+.cert-wave .w-sig-name{font-family:'Great Vibes',cursive;font-size:22px;color:#1a0808;line-height:1}
+.cert-wave .w-sig-line{width:120px;height:1px;background:#d0b090}
+.cert-wave .w-sig-label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4a3020;font-family:'DM Sans',sans-serif}
+.cert-wave .w-sig-title{font-size:9px;color:#9a7858;font-family:'DM Sans',sans-serif}
+.cert-wave .w-seal{width:50px;height:50px;border-radius:50%;border:2px solid #c0392b;display:flex;align-items:center;justify-content:center;font-size:20px;background:rgba(192,57,43,.05)}
+.cert-wave .w-certid{position:absolute;bottom:8px;right:18px;font-size:8px;color:#c0a888;font-family:'DM Sans',sans-serif}
+
+/* ════ TEMPLATE C: CORPORATE NAVY ════ */
+.cert-navy{background:#fff}
+.cert-navy .n-header{position:absolute;top:0;left:0;right:0;height:120px;background:linear-gradient(135deg,#0a1628 0%,#1e3a5f 100%)}
+.cert-navy .n-header-accent{position:absolute;top:120px;left:0;right:0;height:4px;background:linear-gradient(90deg,#4a9eff,#0a1628)}
+.cert-navy .n-header-pattern{position:absolute;top:0;right:0;width:200px;height:120px;overflow:hidden}
+.cert-navy .n-header-circle{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.08)}
+.cert-navy .n-logo-area{position:absolute;top:20px;left:32px;display:flex;align-items:center;gap:12px}
+.cert-navy .n-logo-circle{width:56px;height:56px;border-radius:50%;border:2px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:24px}
+.cert-navy .n-org-info{display:flex;flex-direction:column;gap:3px}
+.cert-navy .n-org-name{font-family:'Cinzel',serif;font-size:16px;color:#fff;letter-spacing:.5px}
+.cert-navy .n-org-sub{font-size:9px;letter-spacing:2px;color:rgba(255,255,255,.45);text-transform:uppercase;font-family:'DM Sans',sans-serif}
+.cert-navy .n-type-badge{position:absolute;top:24px;right:28px;background:rgba(74,158,255,.15);border:1px solid rgba(74,158,255,.35);border-radius:8px;padding:10px 16px;text-align:right}
+.cert-navy .n-type-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(74,158,255,.7);font-family:'DM Sans',sans-serif}
+.cert-navy .n-type-date{font-size:12px;color:#fff;font-weight:500;margin-top:3px;font-family:'DM Sans',sans-serif}
+.cert-navy .n-body{position:absolute;top:140px;left:0;right:0;bottom:0;display:flex;flex-direction:column;padding:28px 40px 20px}
+.cert-navy .n-ref{font-size:10px;color:#9ab0c8;letter-spacing:.5px;font-family:'DM Sans',sans-serif;margin-bottom:14px}
+.cert-navy .n-certify-text{font-size:12px;color:#5a7a98;font-family:'DM Sans',sans-serif;margin-bottom:6px}
+.cert-navy .n-name{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:700;font-style:italic;color:#0a1628;line-height:1;letter-spacing:-1px;margin-bottom:4px}
+.cert-navy .n-accent-bar{width:220px;height:3.5px;background:linear-gradient(90deg,#4a9eff,#0a72d4);border-radius:2px;margin-bottom:16px}
+.cert-navy .n-detail-line{font-size:13px;color:#2a4a6a;font-family:'DM Sans',sans-serif;margin-bottom:5px;line-height:1.6}
+.cert-navy .n-role-pill{display:inline-flex;background:#eef4ff;border:1px solid #c0d8f8;border-radius:6px;padding:4px 12px;font-size:13px;font-weight:600;color:#0a1628;font-family:'DM Sans',sans-serif;margin:4px 0 8px}
+.cert-navy .n-period{font-size:11px;color:#7a98b8;font-family:'DM Sans',sans-serif;margin-bottom:4px}
+.cert-navy .n-footer{display:flex;align-items:flex-end;gap:0;margin-top:auto;padding-top:14px;border-top:1px solid #d8e8f4}
+.cert-navy .n-sig-block{flex:1;display:flex;flex-direction:column;gap:3px}
+.cert-navy .n-sig-name{font-family:'Great Vibes',cursive;font-size:24px;color:#0a1628;line-height:1}
+.cert-navy .n-sig-line{width:140px;height:1px;background:#b0c8e0;margin:3px 0}
+.cert-navy .n-sig-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#0a1628;font-family:'DM Sans',sans-serif}
+.cert-navy .n-sig-title{font-size:9px;color:#7a98b8;font-family:'DM Sans',sans-serif}
+.cert-navy .n-stamp{width:62px;height:62px;border-radius:50%;border:2px solid #0a1628;background:#eef4ff;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;margin-left:16px}
+.cert-navy .n-certid{position:absolute;bottom:8px;right:18px;font-size:8px;color:#b0c8e0;font-family:'DM Sans',sans-serif}
+
+/* ════ TEMPLATE D: EMERALD LUXURY ════ */
+.cert-emerald{background:linear-gradient(150deg,#021510 0%,#063020 40%,#021510 100%)}
+.cert-emerald .e-outer{position:absolute;inset:12px;border:1.5px solid #1d6b3e}
+.cert-emerald .e-inner{position:absolute;inset:20px;border:1px solid rgba(76,175,120,.2)}
+.cert-emerald .e-glow{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(76,175,120,.07),transparent)}
+.cert-emerald .e-corner-tl{position:absolute;top:8px;left:8px;width:60px;height:60px}
+.cert-emerald .e-corner-tr{position:absolute;top:8px;right:8px;width:60px;height:60px;transform:scaleX(-1)}
+.cert-emerald .e-corner-bl{position:absolute;bottom:8px;left:8px;width:60px;height:60px;transform:scaleY(-1)}
+.cert-emerald .e-corner-br{position:absolute;bottom:8px;right:8px;width:60px;height:60px;transform:scale(-1)}
+.cert-emerald .e-content{position:absolute;inset:28px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;padding:8px 44px}
+.cert-emerald .e-top{display:flex;flex-direction:column;align-items:center;gap:5px}
+.cert-emerald .e-icon{width:50px;height:50px;border-radius:50%;border:1.5px solid #2d8a52;background:rgba(76,175,120,.1);display:flex;align-items:center;justify-content:center;font-size:22px}
+.cert-emerald .e-org{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:#4caf7c;text-transform:uppercase}
+.cert-emerald .e-line{width:160px;height:1px;background:linear-gradient(90deg,transparent,#2d8a52,transparent);margin:4px auto}
+.cert-emerald .e-certtype{font-size:9px;letter-spacing:3.5px;text-transform:uppercase;color:rgba(76,175,120,.5);font-family:'Cinzel',serif}
+.cert-emerald .e-mid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}
+.cert-emerald .e-awarded{font-size:13px;color:rgba(180,230,200,.6);font-style:italic}
+.cert-emerald .e-name{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;font-style:italic;color:#a8e6c0;line-height:1;letter-spacing:-1px}
+.cert-emerald .e-nameline{width:300px;height:1px;background:linear-gradient(90deg,transparent,#4caf7c,transparent);margin:4px auto}
+.cert-emerald .e-detail{font-size:13px;color:rgba(180,230,200,.75);line-height:1.8;max-width:480px}
+.cert-emerald .e-role{color:#4caf7c;font-weight:600;font-size:15px;font-style:italic}
+.cert-emerald .e-period{font-size:11px;color:rgba(76,175,120,.5);letter-spacing:.3px;margin-top:3px}
+.cert-emerald .e-bottom{width:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:start;border-top:1px solid rgba(76,175,120,.2);padding-top:10px}
+.cert-emerald .e-sig{display:flex;flex-direction:column;align-items:center;gap:3px}
+.cert-emerald .e-sig-name{font-family:'Great Vibes',cursive;font-size:22px;color:rgba(180,230,200,.9);line-height:1}
+.cert-emerald .e-sig-line{width:110px;height:1px;background:rgba(76,175,120,.35)}
+.cert-emerald .e-sig-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(76,175,120,.6);font-family:'DM Sans',sans-serif}
+.cert-emerald .e-sig-title{font-size:9px;color:rgba(76,175,120,.4);font-family:'DM Sans',sans-serif}
+.cert-emerald .e-center{padding:0 18px;display:flex;align-items:center;justify-content:center}
+.cert-emerald .e-seal{width:52px;height:52px;border-radius:50%;border:1.5px solid #2d8a52;background:rgba(45,138,82,.12);display:flex;align-items:center;justify-content:center;font-size:22px}
+.cert-emerald .e-certid{position:absolute;bottom:8px;right:20px;font-size:8px;color:rgba(76,175,120,.25);font-family:'DM Sans',sans-serif}
+
+/* ════ TEMPLATE E: PARCHMENT ANTIQUE ════ */
+.cert-parchment{background:linear-gradient(160deg,#f6e8c4 0%,#edda9e 40%,#f2e4b0 70%,#e8d490 100%)}
+.cert-parchment .p-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 50%,transparent 40%,rgba(80,44,8,.22) 100%)}
+.cert-parchment .p-outer{position:absolute;inset:12px;border:2.5px solid #8b6010}
+.cert-parchment .p-inner{position:absolute;inset:18px;border:1px solid rgba(139,96,16,.35)}
+.cert-parchment .p-corner-svg{position:absolute;width:50px;height:50px}
+.cert-parchment .p-corner-svg.tl{top:8px;left:8px}
+.cert-parchment .p-corner-svg.tr{top:8px;right:8px;transform:scaleX(-1)}
+.cert-parchment .p-corner-svg.bl{bottom:8px;left:8px;transform:scaleY(-1)}
+.cert-parchment .p-corner-svg.br{bottom:8px;right:8px;transform:scale(-1)}
+.cert-parchment .p-content{position:absolute;inset:26px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;padding:10px 50px}
+.cert-parchment .p-top{display:flex;flex-direction:column;align-items:center;gap:4px}
+.cert-parchment .p-icon{width:48px;height:48px;border-radius:50%;border:2px solid #8b6010;display:flex;align-items:center;justify-content:center;font-size:20px;background:rgba(139,96,16,.1)}
+.cert-parchment .p-org{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:#5a3a08;text-transform:uppercase}
+.cert-parchment .p-rule{display:flex;align-items:center;gap:6px;width:100%}
+.cert-parchment .p-rule-line-thick{flex:1;height:2.5px;background:#8b6010}
+.cert-parchment .p-rule-line-thin{flex:1;height:1px;background:#8b6010;margin-top:4px}
+.cert-parchment .p-rule-diamond{width:7px;height:7px;background:#8b6010;transform:rotate(45deg);flex-shrink:0}
+.cert-parchment .p-title{font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:#2e1804;letter-spacing:1.5px}
+.cert-parchment .p-mid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.cert-parchment .p-certify{font-style:italic;font-size:13px;color:#5a3a08}
+.cert-parchment .p-name{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;font-style:italic;color:#2e1804;line-height:1;letter-spacing:-1px}
+.cert-parchment .p-nameline{width:280px;height:1.5px;background:linear-gradient(90deg,transparent,#8b6010,transparent);margin:4px auto}
+.cert-parchment .p-body{font-size:13px;color:#4a2e0a;line-height:1.8}
+.cert-parchment .p-role{color:#8b4010;font-weight:600;font-size:15px;font-style:italic}
+.cert-parchment .p-period{font-size:11px;color:#9a7028;letter-spacing:.3px}
+.cert-parchment .p-bottom{width:100%;display:grid;grid-template-columns:1fr auto 1fr;border-top:2px solid #8b6010;padding-top:10px;align-items:start}
+.cert-parchment .p-sig{display:flex;flex-direction:column;align-items:center;gap:3px}
+.cert-parchment .p-sig-name{font-family:'Great Vibes',cursive;font-size:22px;color:#2e1804;line-height:1}
+.cert-parchment .p-sig-line{width:110px;height:1px;background:#8b6010}
+.cert-parchment .p-sig-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#4a2e0a;font-family:'DM Sans',sans-serif}
+.cert-parchment .p-sig-title{font-size:9px;color:#8b6010;font-family:'DM Sans',sans-serif}
+.cert-parchment .p-center-seal{padding:0 18px;display:flex;align-items:flex-start;justify-content:center;padding-top:4px}
+.cert-parchment .p-seal{width:50px;height:50px;border-radius:50%;border:2px solid #8b6010;display:flex;align-items:center;justify-content:center;font-size:20px;background:rgba(139,96,16,.08)}
+.cert-parchment .p-certid{position:absolute;bottom:8px;right:18px;font-size:8px;color:rgba(90,60,16,.35);font-family:'DM Sans',sans-serif}
+
+/* ════ TEMPLATE F: MODERN EDGE ════ */
+.cert-modern{background:#f8f8f8}
+.cert-modern .m-sidebar{position:absolute;top:0;left:0;bottom:0;width:10px;background:linear-gradient(180deg,#e63946 0%,#c1121f 50%,#e63946 100%)}
+.cert-modern .m-top-tri{position:absolute;top:0;right:0;width:0;height:0;border-left:180px solid transparent;border-top:180px solid rgba(230,57,70,.06)}
+.cert-modern .m-bot-tri{position:absolute;bottom:0;right:0;width:0;height:0;border-left:120px solid transparent;border-bottom:120px solid rgba(26,26,46,.05)}
+.cert-modern .m-content{position:absolute;inset:0;left:28px;display:flex;flex-direction:column;justify-content:space-between;padding:30px 32px 22px 24px}
+.cert-modern .m-top{display:flex;justify-content:space-between;align-items:flex-start}
+.cert-modern .m-org-block{display:flex;flex-direction:column;gap:3px}
+.cert-modern .m-org-name{font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:#e63946;letter-spacing:.5px}
+.cert-modern .m-org-line{width:40px;height:2.5px;background:#e63946;border-radius:2px;margin:4px 0}
+.cert-modern .m-org-sub{font-size:9px;color:#aaa;letter-spacing:1.5px;text-transform:uppercase;font-family:'DM Sans',sans-serif}
+.cert-modern .m-type-block{text-align:right}
+.cert-modern .m-type-label{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:#ccc;font-family:'DM Sans',sans-serif}
+.cert-modern .m-type-date{font-size:11px;color:#666;font-family:'DM Sans',sans-serif;margin-top:3px}
+.cert-modern .m-mid{display:flex;flex-direction:column;gap:0;flex:1;justify-content:center;padding:20px 0 10px}
+.cert-modern .m-certify{font-size:12px;color:#888;font-family:'DM Sans',sans-serif;margin-bottom:8px}
+.cert-modern .m-name{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:700;font-style:italic;color:#1a1a2e;line-height:1;letter-spacing:-1px}
+.cert-modern .m-accent{width:0;height:4px;background:linear-gradient(90deg,#e63946,#ff6b7a);border-radius:2px;margin:8px 0 16px;transition:width .3s}
+.cert-modern .m-detail{font-size:13px;color:#3a3a4a;font-family:'DM Sans',sans-serif;line-height:1.7;margin-bottom:4px}
+.cert-modern .m-role{font-size:15px;font-weight:700;color:#1a1a2e;font-family:'DM Sans',sans-serif}
+.cert-modern .m-sub-detail{font-size:11px;color:#888;font-family:'DM Sans',sans-serif}
+.cert-modern .m-bottom{display:flex;justify-content:space-between;align-items:flex-end;padding-top:14px;border-top:1px solid #e8e8e8}
+.cert-modern .m-sig-block{display:flex;flex-direction:column;gap:3px}
+.cert-modern .m-sig-accent{width:3px;height:24px;background:#e63946;border-radius:2px;margin-bottom:6px}
+.cert-modern .m-sig-name{font-family:'Great Vibes',cursive;font-size:24px;color:#1a1a2e;line-height:1}
+.cert-modern .m-sig-line{width:130px;height:1px;background:#d0d0d0;margin:3px 0}
+.cert-modern .m-sig-label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#1a1a2e;font-family:'DM Sans',sans-serif}
+.cert-modern .m-sig-title{font-size:9px;color:#aaa;font-family:'DM Sans',sans-serif}
+.cert-modern .m-stamp{width:56px;height:56px;border-radius:50%;border:2px solid #e63946;background:rgba(230,57,70,.06);display:flex;align-items:center;justify-content:center;font-size:22px}
+.cert-modern .m-certid{position:absolute;bottom:8px;right:14px;font-size:8px;color:#ccc;font-family:'DM Sans',sans-serif}
+</style>
+
+<meta name="description" content="Create internship certificates, training certificates, participation certificates and course completion certificates online. Free PDF download, no signup required.">
+<meta name="keywords" content="certificate generator, internship certificate generator, course certificate generator, training certificate generator, participation certificate generator">
+<meta property="og:title" content="Free Certificate Generator Online">
+<meta property="og:description" content="Generate professional certificates instantly with free PDF download.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://certifypro.netlify.app/">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"CertifyPro",
+  "applicationCategory":"BusinessApplication",
+  "operatingSystem":"Web",
+  "offers":{"@type":"Offer","price":"0"}
+}
+</script>
+
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#">
+    <div class="logo-mark">🎓</div>
+    <div class="logo-name">Certify<span>Pro</span></div>
+  </a>
+  <button class="theme-btn" id="themeBtn" title="Toggle theme">🌙</button>
+</header>
+
+<div class="hero">
+  <div class="badge">✦ Free · No Login · Instant PDF Download</div>
+  <h1>Create Professional Certificates<br><em>Online in Minutes</em></h1>
+  <p>Generate internship, training, participation and course completion certificates instantly. Customize details, preview live and download PDF for free.</p>
+</div>
+
+<!-- TYPE -->
+<div class="sec">
+  <div class="sec-lbl">Certificate Type</div>
+  <div class="pill-row">
+    <button class="pill on" data-type="internship">🏢 Internship Completion</button>
+    <button class="pill" data-type="job">💼 Job Experience Letter</button>
+    <button class="pill" data-type="course">📚 Course Completion</button>
+    <button class="pill" data-type="offer">📄 Offer Letter</button>
+  </div>
+</div>
+
+<!-- TEMPLATES -->
+<div class="sec">
+  <div class="sec-lbl">Choose Template</div>
+  <div class="tpl-strip">
+    <div class="tpl-card on" data-tpl="royal">
+      <div class="tpl-thumb" style="background:linear-gradient(135deg,#0d0a1e,#16123a);color:#c9a84c">👑 ROYAL</div>
+      <div class="tpl-name">Royal Gold</div>
+    </div>
+    <div class="tpl-card" data-tpl="wave">
+      <div class="tpl-thumb" style="background:#fff;color:#c0392b;border-bottom:3px solid #c0392b">🌊 WAVE</div>
+      <div class="tpl-name">Wave Crimson</div>
+    </div>
+    <div class="tpl-card" data-tpl="navy">
+      <div class="tpl-thumb" style="background:linear-gradient(135deg,#0a1628,#1e3a5f);color:#4a9eff">⚓ NAVY</div>
+      <div class="tpl-name">Corporate Navy</div>
+    </div>
+    <div class="tpl-card" data-tpl="emerald">
+      <div class="tpl-thumb" style="background:linear-gradient(135deg,#021510,#063020);color:#4caf7c">💎 EMERALD</div>
+      <div class="tpl-name">Emerald Luxe</div>
+    </div>
+    <div class="tpl-card" data-tpl="parchment">
+      <div class="tpl-thumb" style="background:linear-gradient(135deg,#f6e8c4,#edda9e);color:#5a3a08">📜 ANTIQUE</div>
+      <div class="tpl-name">Parchment</div>
+    </div>
+    <div class="tpl-card" data-tpl="modern">
+      <div class="tpl-thumb" style="background:#f8f8f8;color:#1a1a2e;border-left:6px solid #e63946">⚡ EDGE</div>
+      <div class="tpl-name">Modern Edge</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <!-- FORM -->
+  <div class="card" style="align-self:start">
+    <div class="card-hdr">
+      <div class="card-icon">✏️</div>
+      <div class="card-title">Certificate Details</div>
+    </div>
+    <div class="card-body">
+      <div class="fg">
+        <label>Recipient Full Name <span class="req">*</span></label>
+        <input type="text" id="fName" placeholder="e.g. Priya Sharma" oninput="liveUpdate()"/>
+      </div>
+      <div class="fg">
+        <label>Organisation / Company <span class="req">*</span></label>
+        <input type="text" id="fOrg" placeholder="e.g. TechNova Solutions Pvt. Ltd." oninput="liveUpdate()"/>
+        <div class="gen-strip">
+          <button class="gbtn" onclick="genCompany()">🎲 Corporate</button>
+          <button class="gbtn" onclick="genStartup()">🚀 Startup</button>
+          <button class="gbtn" onclick="genMNC()">🌐 MNC</button>
+        </div>
+      </div>
+
+      <div id="dynFields"></div>
+
+      <div class="row2">
+        <div class="fg">
+          <label>Start Date</label>
+          <input type="date" id="fStart" oninput="liveUpdate()"/>
+        </div>
+        <div class="fg">
+          <label>End / Issue Date <span class="req">*</span></label>
+          <input type="date" id="fEnd" oninput="liveUpdate()"/>
+        </div>
+      </div>
+
+      <div class="divider"><span>SIGNATURES</span></div>
+
+      <div class="row2">
+        <div class="fg">
+          <label>Signatory 1 Name</label>
+          <input type="text" id="fS1N" placeholder="Arjun Mehta" oninput="liveUpdate()"/>
+          <div class="gen-strip"><button class="gbtn" onclick="genSig(1)">🎲 Random</button></div>
+        </div>
+        <div class="fg">
+          <label>Title</label>
+          <input type="text" id="fS1T" placeholder="HR Manager" oninput="liveUpdate()"/>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="fg">
+          <label>Signatory 2 Name</label>
+          <input type="text" id="fS2N" placeholder="Vikram Patel" oninput="liveUpdate()"/>
+          <div class="gen-strip"><button class="gbtn" onclick="genSig(2)">🎲 Random</button></div>
+        </div>
+        <div class="fg">
+          <label>Title</label>
+          <input type="text" id="fS2T" placeholder="Director" oninput="liveUpdate()"/>
+        </div>
+      </div>
+
+      <div class="fg">
+        <label>Certificate ID <span style="color:var(--txt3)">(optional)</span></label>
+        <div style="display:flex;gap:6px">
+          <input type="text" id="fCID" placeholder="CP-2024-0042" oninput="liveUpdate()" style="flex:1"/>
+          <button class="gbtn" onclick="genCID()" style="flex-shrink:0">🎲</button>
+        </div>
+      </div>
+
+      <div class="fg">
+        <label>Upload Logo <span style="color:var(--txt3)">(optional)</span></label>
+        <input type="file" id="fLogo" accept="image/*" onchange="handleLogo(this)"/>
+        <div class="hint">PNG/JPG logo will appear on the certificate</div>
+      </div>
+
+      <div class="actions">
+        <button class="btn-gold" onclick="openModal()">👁 Full-Screen Preview</button>
+        <div class="btn-row">
+          <button class="btn-out" onclick="dlPDF()">⬇ Download PDF</button>
+          <button class="btn-out" onclick="dlPNG()">🖼 Download PNG</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVE PREVIEW -->
+  <div class="card preview-sticky">
+    <div class="card-hdr">
+      <div class="card-icon">👁</div>
+      <div class="card-title">Live Preview</div>
+    </div>
+    <div class="card-body" style="padding:10px">
+      <div class="preview-wrap" id="liveWrap"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="modal">
+  <div class="modal">
+    <div class="modal-hdr">
+      <div class="modal-hdr-title">📋 Full Certificate Preview</div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div id="modalWrap" style="overflow:auto"></div>
+    </div>
+    <div class="modal-ftr">
+      <button class="btn-out" onclick="closeModal()">Close</button>
+      <button class="btn-gold" onclick="dlPDF()">⬇ PDF</button>
+      <button class="btn-gold" onclick="dlPNG()">🖼 PNG</button>
+    </div>
+  </div>
+</div>
+
+<!-- HIDDEN CERT (full size for export) -->
+<div id="exportTarget" style="position:fixed;top:-9999px;left:-9999px;z-index:-1;pointer-events:none"></div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Data ────────────────────────────────────────────────────────
+const CORPS=['Tata Consultancy Services Ltd.','Infosys Technologies Pvt. Ltd.','Wipro Digital Solutions Ltd.','HCL Technologies Ltd.','Reliance Industries Ltd.','Mahindra & Mahindra Ltd.','Bajaj Finserv Ltd.','Larsen & Toubro Ltd.'];
+const STARTUPS=['Razorpay Payments Pvt. Ltd.','Zerodha Broking Ltd.','Groww Technologies Pvt. Ltd.','Meesho Supply Chain Pvt. Ltd.','upGrad Education Pvt. Ltd.','ClearTax Technologies Ltd.','Unacademy Learning Pvt. Ltd.'];
+const MNCS=['Google India Pvt. Ltd.','Microsoft India R&D Pvt. Ltd.','Amazon Development Centre India','IBM India Pvt. Ltd.','Accenture Solutions Pvt. Ltd.','Deloitte Consulting India LLP','Goldman Sachs India Pvt. Ltd.'];
+const FIRSTN=['Priya','Ananya','Vikram','Rohit','Sneha','Arjun','Kavya','Nikhil','Meera','Aditya','Pooja','Rahul','Divya','Sanjay','Neha','Kiran'];
+const LASTN=['Sharma','Patel','Mehta','Iyer','Reddy','Gupta','Nair','Singh','Joshi','Verma','Kulkarni','Desai','Bhat','Pillai','Rao'];
+const SIGTITLES=['Chief Executive Officer','Managing Director','VP – Human Resources','Head of Talent','Director of Operations','Chief People Officer','HR Business Partner','Founder & CEO'];
+const ROLES=['Software Development Engineer','Product Manager','Data Analyst','UI/UX Designer','Business Development Associate','Digital Marketing Specialist','Full Stack Developer','Machine Learning Engineer','Content Strategist','Operations Manager'];
+const DEPTS=['Engineering & Technology','Product Management','Marketing & Communications','Finance & Accounts','Design & UX','Data Science','Business Development','Human Resources'];
+const COURSES=['Full Stack Web Development','Python for Data Science','Digital Marketing & Growth Hacking','UI/UX Design Fundamentals','Cloud Computing with AWS','Business Analytics','Advanced React.js','Cyber Security Essentials','Product Management Certification'];
+
+const rnd=a=>a[Math.floor(Math.random()*a.length)];
+let certType='internship', certTpl='royal', logoDataUrl=null;
+
+function genCompany(){sv('fOrg',rnd(CORPS));liveUpdate();}
+function genStartup(){sv('fOrg',rnd(STARTUPS));liveUpdate();}
+function genMNC(){sv('fOrg',rnd(MNCS));liveUpdate();}
+function genSig(n){sv('fS'+n+'N',rnd(FIRSTN)+' '+rnd(LASTN));sv('fS'+n+'T',rnd(SIGTITLES));liveUpdate();}
+function genCID(){sv('fCID','CP-'+new Date().getFullYear()+'-'+String(Math.floor(Math.random()*9000)+1000));liveUpdate();}
+function genRoleField(){const e=ge('fRole');if(e){e.value=rnd(ROLES);liveUpdate();}}
+function genDeptField(){const e=ge('fDept');if(e){e.value=rnd(DEPTS);liveUpdate();}}
+function genCourseField(){const e=ge('fCourse');if(e){e.value=rnd(COURSES);liveUpdate();}}
+
+const ge=id=>document.getElementById(id);
+const gv=id=>{const e=ge(id);return e?e.value.trim():'';}
+const sv=(id,v)=>{const e=ge(id);if(e)e.value=v;}
+const fmtD=d=>{if(!d)return '';return new Date(d+'T12:00:00').toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});};
+
+// ── Theme ──────────────────────────────────────────────────────
+ge('themeBtn').onclick=()=>{
+  const d=document.documentElement,dark=d.dataset.theme==='dark';
+  d.dataset.theme=dark?'light':'dark';ge('themeBtn').textContent=dark?'🌙':'☀️';
+};
+
+// ── Dynamic fields ─────────────────────────────────────────────
+const DYNCFG={
+  internship:[
+    {id:'fRole',label:'Internship Role',ph:'e.g. Software Development Intern',gen:'genRoleField()'},
+    {id:'fDept',label:'Department',ph:'e.g. Engineering & Technology',gen:'genDeptField()'},
+    {id:'fPerf',label:'Performance Remark (optional)',ph:'e.g. with outstanding dedication and enthusiasm',ta:true},
+  ],
+  job:[
+    {id:'fRole',label:'Job Designation',ph:'e.g. Senior Software Engineer',gen:'genRoleField()'},
+    {id:'fDept',label:'Department',ph:'e.g. Product Management',gen:'genDeptField()'},
+    {id:'fPerf',label:'Conduct Remark (optional)',ph:'e.g. with exemplary professionalism',ta:true},
+  ],
+  course:[
+    {id:'fCourse',label:'Course Name',ph:'e.g. Full Stack Web Development',gen:'genCourseField()'},
+    {id:'fGrade',label:'Grade / Score (optional)',ph:'e.g. A+ | 94%'},
+    {id:'fHours',label:'Duration (optional)',ph:'e.g. 120 hours'},
+  ],
+  offer:[
+    {id:'fRole',label:'Offered Position',ph:'e.g. Associate Product Manager',gen:'genRoleField()'},
+    {id:'fDept',label:'Department',ph:'e.g. Product Management',gen:'genDeptField()'},
+    {id:'fSalary',label:'CTC / Salary (optional)',ph:'e.g. ₹8,50,000 per annum'},
+    {id:'fJoin',label:'Date of Joining',type:'date'},
+  ]
+};
+
+function renderDyn(){
+  const cfg=DYNCFG[certType]||[];
+  ge('dynFields').innerHTML=cfg.map(f=>{
+    const gen=f.gen?`<div class="gen-strip"><button class="gbtn" onclick="${f.gen}">🎲 Suggest</button></div>`:'';
+    if(f.ta) return `<div class="fg"><label>${f.label}</label><textarea id="${f.id}" placeholder="${f.ph}" oninput="liveUpdate()"></textarea></div>`;
+    return `<div class="fg"><label>${f.label}</label><input type="${f.type||'text'}" id="${f.id}" placeholder="${f.ph}" oninput="liveUpdate()"/>${gen}</div>`;
+  }).join('');
+}
+
+// ── Logo ────────────────────────────────────────────────────────
+function handleLogo(inp){
+  const f=inp.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=e=>{logoDataUrl=e.target.result;liveUpdate();};
+  r.readAsDataURL(f);
+}
+
+// ── Build data obj ─────────────────────────────────────────────
+function D(){
+  return {
+    name:gv('fName')||'Recipient Name',
+    org:gv('fOrg')||'Your Organisation',
+    role:gv('fRole')||'',
+    dept:gv('fDept')||'',
+    perf:gv('fPerf')||'with dedication and enthusiasm',
+    course:gv('fCourse')||'',
+    grade:gv('fGrade')||'',
+    hours:gv('fHours')||'',
+    salary:gv('fSalary')||'',
+    joinDate:fmtD(gv('fJoin')),
+    startDate:fmtD(gv('fStart')),
+    endDate:fmtD(gv('fEnd'))||fmtD(new Date().toISOString().slice(0,10)),
+    s1n:gv('fS1N')||'Authorised Signatory',
+    s1t:gv('fS1T')||'HR Manager',
+    s2n:gv('fS2N')||'',
+    s2t:gv('fS2T')||'',
+    cid:gv('fCID')||'CP-'+new Date().getFullYear()+'-XXXX',
+    logo:logoDataUrl
+  };
+}
+
+// ══════════════════════════════════════════════════════════════
+//   CERTIFICATE HTML BUILDERS
+// ══════════════════════════════════════════════════════════════
+
+const CERT_TYPES={
+  internship:'INTERNSHIP CERTIFICATE',
+  job:'EXPERIENCE CERTIFICATE',
+  course:'CERTIFICATE OF COMPLETION',
+  offer:'OFFER LETTER'
+};
+const CERT_ICONS={internship:'🏢',job:'💼',course:'📚',offer:'📄'};
+
+// Corner SVG ornament
+const cornerSVG=`<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4 4 L4 24" stroke="#b8922e" stroke-width="2" stroke-linecap="round"/>
+  <path d="M4 4 L24 4" stroke="#b8922e" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="4" cy="4" r="3" fill="#b8922e"/>
+  <path d="M4 14 L14 4" stroke="rgba(184,146,46,0.3)" stroke-width="1"/>
+  <circle cx="14" cy="4" r="1.5" fill="rgba(184,146,46,0.5)"/>
+  <circle cx="4" cy="14" r="1.5" fill="rgba(184,146,46,0.5)"/>
+</svg>`;
+
+const emeraldCornerSVG=`<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6 6 L6 28" stroke="#2d8a52" stroke-width="2" stroke-linecap="round"/>
+  <path d="M6 6 L28 6" stroke="#2d8a52" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="6" cy="6" r="3" fill="#2d8a52"/>
+  <path d="M6 18 Q12 12 18 6" stroke="rgba(76,175,120,0.3)" stroke-width="1" fill="none"/>
+  <circle cx="18" cy="6" r="2" fill="rgba(76,175,120,0.4)"/>
+  <circle cx="6" cy="18" r="2" fill="rgba(76,175,120,0.4)"/>
+</svg>`;
+
+const parchmentCornerSVG=`<svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4 4 L4 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M4 4 L26 4" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M4 4 L4 14" stroke="#8b6010" stroke-width="1" stroke-linecap="round"/>
+  <path d="M4 4 L14 4" stroke="#8b6010" stroke-width="1" stroke-linecap="round"/>
+  <circle cx="4" cy="4" r="3.5" fill="#8b6010"/>
+  <path d="M14 4 Q10 8 6 12" stroke="rgba(139,96,16,0.35)" stroke-width="1" fill="none"/>
+</svg>`;
+
+function sigBlock(n,t,cls){
+  return `<div class="${cls}-sig">
+    <div class="${cls}-sig-name">${n||'Authorised Signatory'}</div>
+    <div class="${cls}-sig-line"></div>
+    <div class="${cls}-sig-label">${n||'Authorised Signatory'}</div>
+    <div class="${cls}-sig-title">${t||''}</div>
+  </div>`;
+}
+
+function buildRoyal(d){
+  const period=d.startDate&&d.endDate?`${d.startDate} — ${d.endDate}`:(d.endDate||'');
+  let midContent='';
+  if(certType==='internship'){
+    midContent=`<div class="r-detail1">has successfully completed an <span class="r-highlight">Internship</span> at<br>${d.org}</div>
+      ${d.role?`<div class="r-detail1" style="font-size:13px;color:rgba(201,168,76,.7)">as <span class="r-highlight">${d.role}</span>${d.dept?' — '+d.dept:''}</div>`:''}
+      ${period?`<div class="r-dates">${period}</div>`:''}`;
+  } else if(certType==='job'){
+    midContent=`<div class="r-detail1">was employed with distinction at<br>${d.org}</div>
+      ${d.role?`<div class="r-detail1" style="font-size:13px;color:rgba(201,168,76,.7)">as <span class="r-highlight">${d.role}</span>${d.dept?' — '+d.dept:''}</div>`:''}
+      ${period?`<div class="r-dates">${period}</div>`:''}`;
+  } else if(certType==='course'){
+    midContent=`<div class="r-detail1">has successfully completed the course</div>
+      ${d.course?`<div class="r-highlight" style="font-size:18px">"${d.course}"</div>`:''}
+      ${d.grade?`<div class="r-dates">Grade: ${d.grade}${d.hours?' · '+d.hours:''}</div>`:''}
+      <div class="r-dates">Completed on ${d.endDate}</div>`;
+  } else {
+    midContent=`<div class="r-detail1">is hereby offered the position of</div>
+      ${d.role?`<div class="r-highlight" style="font-size:18px">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
+      ${d.salary?`<div class="r-dates">CTC: ${d.salary}</div>`:''}
+      ${d.joinDate?`<div class="r-dates">Date of Joining: ${d.joinDate}</div>`:''}`;
+  }
+
+  const hasSig2=d.s2n.trim()!=='';
+  return `<div class="cert-root cert-royal">
+    <div class="r-bg-glow"></div>
+    <div class="r-outerBorder"></div>
+    <div class="r-innerBorder"></div>
+    <div class="r-corner tl">${cornerSVG}</div>
+    <div class="r-corner tr">${cornerSVG}</div>
+    <div class="r-corner bl">${cornerSVG}</div>
+    <div class="r-corner br">${cornerSVG}</div>
+    <div class="r-content">
+      <div class="r-top">
+        ${d.logo?`<div class="r-seal"><img src="${d.logo}" style="width:36px;height:36px;border-radius:50%;object-fit:cover"/></div>`:`<div class="r-seal"><span style="font-size:22px">${CERT_ICONS[certType]}</span></div>`}
+        <div class="r-org">${d.org}</div>
+        <div class="r-goldline"></div>
+        <div class="r-certtype">${CERT_TYPES[certType]||'Certificate'}</div>
+      </div>
+      <div class="r-mid">
+        <div class="r-presenting">This certificate is proudly presented to</div>
+        <div class="r-name">${d.name}</div>
+        <div class="r-nameline"></div>
+        ${midContent}
+      </div>
+      <div class="r-bottom">
+        ${sigBlock(d.s1n,d.s1t,'r')}
+        <div class="r-center-seal">
+          <div class="r-seal-circle">🏅</div>
+        </div>
+        ${hasSig2?sigBlock(d.s2n,d.s2t,'r'):`<div style="flex:1"></div>`}
+      </div>
+    </div>
+    <div class="r-certid">ID: ${d.cid}</div>
+    <div class="r-brand">CertifyPro™</div>
+  </div>`;
+}
+
+function buildWave(d){
+  const period=d.startDate&&d.endDate?`${d.startDate} to ${d.endDate}`:(d.endDate||'');
+  let bodyContent='';
+  if(certType==='internship'){
+    bodyContent=`<span>In recognition of their contribution to <b>${d.org}</b> as</span>
+      ${d.role?`<div class="w-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
+      <span>For the period of</span>
+      ${period?`<div class="w-period">${period}</div>`:''}`;
+  } else if(certType==='job'){
+    bodyContent=`<span>was employed at <b>${d.org}</b> as</span>
+      ${d.role?`<div class="w-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
+      ${period?`<div class="w-period">${period}</div>`:''}`;
+  } else if(certType==='course'){
+    bodyContent=`<span>For successfully completing the course</span>
+      ${d.course?`<div class="w-role">"${d.course}"</div>`:''}
+      ${d.grade?`<div class="w-period">Grade: ${d.grade}${d.hours?' · '+d.hours:''}</div>`:''}
+      <div class="w-period">Completed on ${d.endDate}</div>`;
+  } else {
+    bodyContent=`<span>is offered the position of</span>
+      ${d.role?`<div class="w-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
+      ${d.salary?`<div class="w-period">CTC: ${d.salary}</div>`:''}
+      ${d.joinDate?`<div class="w-period">Joining: ${d.joinDate}</div>`:''}`;
+  }
+  const hasSig2=d.s2n.trim()!=='';
+  return `<div class="cert-root cert-wave">
+    <svg class="w-wave-bl" viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 200 Q60 120 140 160 T260 200 Z" fill="#e8c870" opacity="0.9"/>
+      <path d="M0 200 Q80 100 160 150 T260 200 Z" fill="#c9a84c" opacity="0.7"/>
+      <path d="M0 200 Q40 140 100 170 T200 200 Z" fill="#c0392b" opacity="0.85"/>
+      <path d="M0 200 Q30 160 70 180 T140 200 Z" fill="#922b21"/>
+    </svg>
+    <svg class="w-wave-tr" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+      <path d="M220 0 Q160 80 80 40 T0 0 Z" fill="#e8c870" opacity="0.9"/>
+      <path d="M220 0 Q140 100 60 50 T0 0 Z" fill="#c9a84c" opacity="0.6"/>
+      <path d="M220 0 Q180 60 120 30 T60 0 Z" fill="#c0392b" opacity="0.7"/>
+      <path d="M220 0 Q190 40 160 20 T100 0 Z" fill="#922b21"/>
+    </svg>
+    <div class="w-border"></div>
+    <div class="w-content">
+      <div class="w-top">
+        ${d.logo?`<div class="w-logo-ring"><img src="${d.logo}" style="width:34px;height:34px;border-radius:50%;object-fit:cover"/></div>`:`<div class="w-logo-ring">${CERT_ICONS[certType]}</div>`}
+        <div class="w-org">${d.org}</div>
+        <div class="w-separator" style="width:300px">
+          <div class="w-sep-line"></div><div class="w-sep-diamond"></div>
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:#8a2010;white-space:nowrap">${CERT_TYPES[certType]}</div>
+          <div class="w-sep-diamond"></div><div class="w-sep-line"></div>
+        </div>
+      </div>
+      <div class="w-mid">
+        <div class="w-presenting">We award this certificate to</div>
+        <div class="w-name">${d.name}</div>
+        <div class="w-nameline"><div class="w-nameline-inner"></div></div>
+        <div class="w-body" style="display:flex;flex-direction:column;align-items:center;gap:3px">
+          ${bodyContent}
+        </div>
+      </div>
+      <div class="w-bottom">
+        ${sigBlock(d.s1n,d.s1t,'w')}
+        <div class="w-seal">${hasSig2?'🌟':'🏅'}</div>
+        ${hasSig2?sigBlock(d.s2n,d.s2t,'w'):`<div></div>`}
+      </div>
+    </div>
+    <div class="w-certid">ID: ${d.cid} · CertifyPro</div>
+  </div>`;
+}
+
+function buildNavy(d){
+  const period=d.startDate&&d.endDate?`${d.startDate} to ${d.endDate}`:(d.endDate||'');
+  let detailRows='';
+  if(certType==='internship'||certType==='job'){
+    const verb=certType==='internship'?'has completed an internship':'was employed';
+    detailRows=`<div class="n-certify-text">${verb} as</div>
+      ${d.role?`<div class="n-role-pill">${d.role}${d.dept?' &nbsp;·&nbsp; '+d.dept:''}</div>`:''}
+      ${period?`<div class="n-period">📅 Period: ${period}</div>`:''}
+      ${d.perf?`<div class="n-period">💬 ${d.perf}</div>`:''}`;
+  } else if(certType==='course'){
+    detailRows=`<div class="n-certify-text">has successfully completed</div>
+      ${d.course?`<div class="n-role-pill">${d.course}</div>`:''}
+      ${d.grade?`<div class="n-period">🎯 Grade: ${d.grade}${d.hours?' &nbsp;·&nbsp; '+d.hours:''}</div>`:''}
+      <div class="n-period">✅ Completed: ${d.endDate}</div>`;
+  } else {
+    detailRows=`<div class="n-certify-text">is hereby offered the position of</div>
+      ${d.role?`<div class="n-role-pill">${d.role}${d.dept?' &nbsp;·&nbsp; '+d.dept:''}</div>`:''}
+      ${d.salary?`<div class="n-period">💰 CTC: ${d.salary}</div>`:''}
+      ${d.joinDate?`<div class="n-period">📅 Date of Joining: ${d.joinDate}</div>`:''}`;
+  }
+  const hasSig2=d.s2n.trim()!=='';
+  return `<div class="cert-root cert-navy">
+    <div class="n-header">
+      <div class="n-header-pattern">
+        <div class="n-header-circle" style="width:160px;height:160px;top:-60px;right:-60px"></div>
+        <div class="n-header-circle" style="width:100px;height:100px;top:10px;right:30px"></div>
+        <div class="n-header-circle" style="width:60px;height:60px;top:40px;right:80px"></div>
+      </div>
+      <div class="n-logo-area">
+        ${d.logo?`<div class="n-logo-circle"><img src="${d.logo}" style="width:44px;height:44px;border-radius:50%;object-fit:cover"/></div>`:`<div class="n-logo-circle">${CERT_ICONS[certType]}</div>`}
+        <div class="n-org-info">
+          <div class="n-org-name">${d.org}</div>
+          <div class="n-org-sub">Excellence · Integrity · Growth</div>
+        </div>
+      </div>
+      <div class="n-type-badge">
+        <div class="n-type-label">${CERT_TYPES[certType]}</div>
+        <div class="n-type-date">${d.endDate}</div>
+      </div>
+    </div>
+    <div class="n-header-accent"></div>
+    <div class="n-body">
+      <div class="n-ref">Ref No: ${d.cid}</div>
+      <div class="n-certify-text">This is to certify that</div>
+      <div class="n-name">${d.name}</div>
+      <div class="n-accent-bar"></div>
+      ${detailRows}
+      <div class="n-footer">
+        <div style="display:flex;gap:40px;flex:1">
+          <div class="n-sig-block">
+            <div class="n-sig-name">${d.s1n||'Authorised Signatory'}</div>
+            <div class="n-sig-line"></div>
+            <div class="n-sig-label">${d.s1n||'Authorised Signatory'}</div>
+            <div class="n-sig-title">${d.s1t||''}</div>
+          </div>
+          ${hasSig2?`<div class="n-sig-block">
+            <div class="n-sig-name">${d.s2n}</div>
+            <div class="n-sig-line"></div>
+            <div class="n-sig-label">${d.s2n}</div>
+            <div class="n-sig-title">${d.s2t}</div>
+          </div>`:''}
+        </div>
+        <div class="n-stamp">🏢</div>
+      </div>
+    </div>
+    <div class="n-certid">ID: ${d.cid} · CertifyPro</div>
+  </div>`;
+}
+
+function buildEmerald(d){
+  const period=d.startDate&&d.endDate?`${d.startDate} — ${d.endDate}`:(d.endDate||'');
+  let midContent='';
+  if(certType==='internship'){
+    midContent=`<div class="e-detail">for completing an internship at <b style="color:#4caf7c">${d.org}</b></div>
+      ${d.role?`<div class="e-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
+      ${period?`<div class="e-period">${period}</div>`:''}`;
+  } else if(certType==='job'){
+    midContent=`<div class="e-detail">for distinguished service at <b style="color:#4caf7c">${d.org}</b></div>
+      ${d.role?`<div class="e-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
+      ${period?`<div class="e-period">${period}</div>`:''}`;
+  } else if(certType==='course'){
+    midContent=`<div class="e-detail">for successfully completing the course</div>
+      ${d.course?`<div class="e-role">"${d.course}"</div>`:''}
+      ${d.grade?`<div class="e-period">Grade: ${d.grade}${d.hours?' · '+d.hours:''}</div>`:''}
+      <div class="e-period">Completed on ${d.endDate}</div>`;
+  } else {
+    midContent=`<div class="e-detail">for accepting the offer of</div>
+      ${d.role?`<div class="e-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
+      ${d.salary?`<div class="e-period">CTC: ${d.salary}</div>`:''}
+      ${d.joinDate?`<div class="e-period">Joining: ${d.joinDate}</div>`:''}`;
+  }
+  const hasSig2=d.s2n.trim()!=='';
+  return `<div class="cert-root cert-emerald">
+    <div class="e-glow"></div>
+    <div class="e-outer"></div>
+    <div class="e-inner"></div>
+    <div class="e-corner-tl">${emeraldCornerSVG}</div>
+    <div class="e-corner-tr">${emeraldCornerSVG}</div>
+    <div class="e-corner-bl">${emeraldCornerSVG}</div>
+    <div class="e-corner-br">${emeraldCornerSVG}</div>
+    <div class="e-content">
+      <div class="e-top">
+        ${d.logo?`<div class="e-icon"><img src="${d.logo}" style="width:34px;height:34px;border-radius:50%;object-fit:cover"/></div>`:`<div class="e-icon">${CERT_ICONS[certType]}</div>`}
+        <div class="e-org">${d.org}</div>
+        <div class="e-line"></div>
+        <div class="e-certtype">${CERT_TYPES[certType]}</div>
+      </div>
+      <div class="e-mid">
+        <div class="e-awarded">This certificate is proudly awarded to</div>
+        <div class="e-name">${d.name}</div>
+        <div class="e-nameline"></div>
+        ${midContent}
+      </div>
+      <div class="e-bottom">
+        ${sigBlock(d.s1n,d.s1t,'e')}
+        <div class="e-center"><div class="e-seal">🌿</div></div>
+        ${hasSig2?sigBlock(d.s2n,d.s2t,'e'):`<div></div>`}
+      </div>
+    </div>
+    <div class="e-certid">ID: ${d.cid}</div>
+  </div>`;
+}
+
+function buildParchment(d){
+  const period=d.startDate&&d.endDate?`${d.startDate} to ${d.endDate}`:(d.endDate||'');
+  let midContent='';
+  if(certType==='internship'){
+    midContent=`<div class="p-body">has served with distinction at <b>${d.org}</b></div>
+      ${d.role?`<div class="p-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
+      ${period?`<div class="p-period">${period}</div>`:''}`;
+  } else if(certType==='job'){
+    midContent=`<div class="p-body">was faithfully employed at <b>${d.org}</b></div>
+      ${d.role?`<div class="p-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
+      ${period?`<div class="p-period">${period}</div>`:''}`;
+  } else if(certType==='course'){
+    midContent=`<div class="p-body">hath successfully accomplished the course</div>
+      ${d.course?`<div class="p-role">"${d.course}"</div>`:''}
+      ${d.grade?`<div class="p-period">Grade: ${d.grade}${d.hours?' · '+d.hours:''}</div>`:''}
+      <div class="p-period">Completed on ${d.endDate}</div>`;
+  } else {
+    midContent=`<div class="p-body">is hereby offered employment as</div>
+      ${d.role?`<div class="p-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
+      ${d.salary?`<div class="p-period">Emoluments: ${d.salary}</div>`:''}
+      ${d.joinDate?`<div class="p-period">Commencement: ${d.joinDate}</div>`:''}`;
+  }
+  const hasSig2=d.s2n.trim()!=='';
+  return `<div class="cert-root cert-parchment">
+    <div class="p-vignette"></div>
+    <div class="p-outer"></div>
+    <div class="p-inner"></div>
+    <svg class="p-corner-svg tl" viewBox="0 0 50 50" fill="none"><path d="M4 4 L4 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><path d="M4 4 L26 4" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><circle cx="4" cy="4" r="3.5" fill="#8b6010"/><path d="M14 4 Q10 8 6 12" stroke="rgba(139,96,16,0.4)" stroke-width="1.5" fill="none"/><circle cx="24" cy="4" r="2" fill="rgba(139,96,16,0.4)"/><circle cx="4" cy="24" r="2" fill="rgba(139,96,16,0.4)"/></svg>
+    <svg class="p-corner-svg tr" viewBox="0 0 50 50" fill="none"><path d="M4 4 L4 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><path d="M4 4 L26 4" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><circle cx="4" cy="4" r="3.5" fill="#8b6010"/><path d="M14 4 Q10 8 6 12" stroke="rgba(139,96,16,0.4)" stroke-width="1.5" fill="none"/><circle cx="24" cy="4" r="2" fill="rgba(139,96,16,0.4)"/><circle cx="4" cy="24" r="2" fill="rgba(139,96,16,0.4)"/></svg>
+    <svg class="p-corner-svg bl" viewBox="0 0 50 50" fill="none"><path d="M4 4 L4 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><path d="M4 4 L26 4" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><circle cx="4" cy="4" r="3.5" fill="#8b6010"/><path d="M14 4 Q10 8 6 12" stroke="rgba(139,96,16,0.4)" stroke-width="1.5" fill="none"/><circle cx="24" cy="4" r="2" fill="rgba(139,96,16,0.4)"/><circle cx="4" cy="24" r="2" fill="rgba(139,96,16,0.4)"/></svg>
+    <svg class="p-corner-svg br" viewBox="0 0 50 50" fill="none"><path d="M4 4 L4 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><path d="M4 4 L26 4" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><circle cx="4" cy="4" r="3.5" fill="#8b6010"/><path d="M14 4 Q10 8 6 12" stroke="rgba(139,96,16,0.4)" stroke-width="1.5" fill="none"/><circle cx="24" cy="4" r="2" fill="rgba(139,96,16,0.4)"/><circle cx="4" cy="24" r="2" fill="rgba(139,96,16,0.4)"/></svg>
+    <div class="p-content">
+      <div class="p-top">
+        ${d.logo?`<div class="p-icon"><img src="${d.logo}" style="width:32px;height:32px;border-radius:50%;object-fit:cover"/></div>`:`<div class="p-icon">${CERT_ICONS[certType]}</div>`}
+        <div class="p-org">${d.org}</div>
+        <div class="p-rule" style="width:100%"><div class="p-rule-line-thick"></div><div class="p-rule-diamond"></div>
+          <div style="font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:#2e1804;letter-spacing:1px;padding:0 10px;white-space:nowrap">${CERT_TYPES[certType]}</div>
+        <div class="p-rule-diamond"></div><div class="p-rule-line-thick"></div></div>
+      </div>
+      <div class="p-mid">
+        <div class="p-certify">This is to certify with honour that</div>
+        <div class="p-name">${d.name}</div>
+        <div class="p-nameline"></div>
+        ${midContent}
+      </div>
+      <div class="p-bottom">
+        ${sigBlock(d.s1n,d.s1t,'p')}
+        <div class="p-center-seal"><div class="p-seal">📜</div></div>
+        ${hasSig2?sigBlock(d.s2n,d.s2t,'p'):`<div></div>`}
+      </div>
+    </div>
+    <div class="p-certid">No. ${d.cid}</div>
+  </div>`;
+}
+
+function buildModern(d){
+  const period=d.startDate&&d.endDate?`${d.startDate} → ${d.endDate}`:(d.endDate||'');
+  let details='';
+  if(certType==='internship'||certType==='job'){
+    details=`<div class="m-detail">${certType==='internship'?'has completed an internship':'was employed'} as</div>
+      ${d.role?`<div class="m-role">${d.role}${d.dept?' &nbsp;·&nbsp; '+d.dept:''}</div>`:''}
+      ${period?`<div class="m-sub-detail">📅 ${period}</div>`:''}
+      ${d.perf?`<div class="m-sub-detail">💬 ${d.perf}</div>`:''}`;
+  } else if(certType==='course'){
+    details=`<div class="m-detail">has successfully completed</div>
+      ${d.course?`<div class="m-role">${d.course}</div>`:''}
+      ${d.grade?`<div class="m-sub-detail">🎯 Grade: ${d.grade}${d.hours?' &nbsp;·&nbsp; '+d.hours:''}</div>`:''}
+      <div class="m-sub-detail">✅ ${d.endDate}</div>`;
+  } else {
+    details=`<div class="m-detail">is offered the position of</div>
+      ${d.role?`<div class="m-role">${d.role}${d.dept?' &nbsp;·&nbsp; '+d.dept:''}</div>`:''}
+      ${d.salary?`<div class="m-sub-detail">💰 ${d.salary}</div>`:''}
+      ${d.joinDate?`<div class="m-sub-detail">📅 Joining: ${d.joinDate}</div>`:''}`;
+  }
+  const hasSig2=d.s2n.trim()!=='';
+  const accentW=Math.min(d.name.length*18,320);
+  return `<div class="cert-root cert-modern">
+    <div class="m-sidebar"></div>
+    <div class="m-top-tri"></div>
+    <div class="m-bot-tri"></div>
+    <div class="m-content">
+      <div class="m-top">
+        <div class="m-org-block">
+          ${d.logo?`<img src="${d.logo}" style="width:36px;height:36px;border-radius:6px;object-fit:cover;margin-bottom:4px"/>`:''}
+          <div class="m-org-name">${d.org}</div>
+          <div class="m-org-line"></div>
+          <div class="m-org-sub">${CERT_TYPES[certType]}</div>
+        </div>
+        <div class="m-type-block">
+          <div class="m-type-label">Issue Date</div>
+          <div class="m-type-date">${d.endDate}</div>
+          <div class="m-type-label" style="margin-top:6px">Ref ID</div>
+          <div class="m-type-date">${d.cid}</div>
+        </div>
+      </div>
+      <div class="m-mid">
+        <div class="m-certify">This is to certify that</div>
+        <div class="m-name">${d.name}</div>
+        <div class="m-accent" style="width:${accentW}px"></div>
+        ${details}
+      </div>
+      <div class="m-bottom">
+        <div style="display:flex;gap:40px">
+          <div class="m-sig-block">
+            <div class="m-sig-accent"></div>
+            <div class="m-sig-name">${d.s1n||'Authorised Signatory'}</div>
+            <div class="m-sig-line"></div>
+            <div class="m-sig-label">${d.s1n||'Authorised Signatory'}</div>
+            <div class="m-sig-title">${d.s1t||''}</div>
+          </div>
+          ${hasSig2?`<div class="m-sig-block">
+            <div class="m-sig-accent"></div>
+            <div class="m-sig-name">${d.s2n}</div>
+            <div class="m-sig-line"></div>
+            <div class="m-sig-label">${d.s2n}</div>
+            <div class="m-sig-title">${d.s2t}</div>
+          </div>`:''}
+        </div>
+        <div class="m-stamp">⭐</div>
+      </div>
+    </div>
+    <div class="m-certid">CertifyPro™</div>
+  </div>`;
+}
+
+function buildCert(d){
+  const builders={royal:buildRoyal,wave:buildWave,navy:buildNavy,emerald:buildEmerald,parchment:buildParchment,modern:buildModern};
+  return (builders[certTpl]||buildRoyal)(d);
+}
+
+// ── Render helpers ──────────────────────────────────────────────
+function renderScaled(container, scale=1){
+  const d=D();
+  const html=buildCert(d);
+  container.innerHTML=html;
+  const cert=container.querySelector('.cert-root');
+  if(cert&&scale!==1){
+    cert.style.transform=`scale(${scale})`;
+    cert.style.transformOrigin='top left';
+    container.style.width=(842*scale)+'px';
+    container.style.height=(596*scale)+'px';
+    container.style.overflow='hidden';
+  }
+}
+
+function liveUpdate(){
+  const wrap=ge('liveWrap');
+  const availW=wrap.clientWidth-4||500;
+  const scale=Math.min(availW/842,1);
+  renderScaled(wrap,scale);
+  wrap.style.height=Math.round(596*scale)+'px';
+}
+
+function openModal(){
+  const wrap=ge('modalWrap');
+  const availW=Math.min(window.innerWidth-80,860)-32;
+  const scale=Math.min(availW/842,1);
+  renderScaled(wrap,scale);
+  wrap.style.height=Math.round(596*scale)+'px';
+  ge('modal').classList.add('open');
+}
+function closeModal(){ge('modal').classList.remove('open');}
+ge('modal').addEventListener('click',e=>{if(e.target===ge('modal'))closeModal();});
+
+// ── Download ────────────────────────────────────────────────────
+async function captureAndDownload(type){
+  const target=ge('exportTarget');
+  renderScaled(target,2);
+  await new Promise(r=>setTimeout(r,600)); // wait for fonts
+
+  const cert=target.querySelector('.cert-root');
+  if(!cert){showToast('Error: certificate not found');return;}
+
+  showToast('Generating, please wait…');
+
+  try{
+    const canvas=await html2canvas(cert,{
+      scale:2,
+      useCORS:true,
+      allowTaint:true,
+      backgroundColor:null,
+      logging:false,
+      width:842*2,
+      height:596*2,
+      windowWidth:842*2,
+      windowHeight:596*2,
+    });
+
+    if(type==='png'){
+      const a=document.createElement('a');
+      a.download=`certificate_${(gv('fName')||'download').replace(/\s+/g,'_')}.png`;
+      a.href=canvas.toDataURL('image/png',1.0);
+      document.body.appendChild(a);a.click();document.body.removeChild(a);
+      showToast('✅ PNG downloaded!');
+    } else {
+      const {jsPDF}=window.jspdf;
+      const pdf=new jsPDF({orientation:'landscape',unit:'mm',format:'a4'});
+      const imgData=canvas.toDataURL('image/png',1.0);
+      const pW=pdf.internal.pageSize.getWidth();
+      const pH=pdf.internal.pageSize.getHeight();
+      pdf.addImage(imgData,'PNG',0,0,pW,pH);
+      pdf.save(`certificate_${(gv('fName')||'download').replace(/\s+/g,'_')}.pdf`);
+      showToast('✅ PDF downloaded!');
+    }
+  } catch(err){
+    console.error(err);
+    showToast('Download failed. Try again.');
+  }
+  target.innerHTML='';
+}
+
+function dlPDF(){captureAndDownload('pdf');}
+function dlPNG(){captureAndDownload('png');}
+
+function showToast(msg){
+  const t=ge('toast');t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3500);
+}
+
+// ── Tabs ────────────────────────────────────────────────────────
+document.querySelectorAll('.pill').forEach(p=>{
+  p.addEventListener('click',()=>{
+    document.querySelectorAll('.pill').forEach(x=>x.classList.remove('on'));
+    p.classList.add('on');certType=p.dataset.type;renderDyn();liveUpdate();
+  });
+});
+document.querySelectorAll('.tpl-card').forEach(c=>{
+  c.addEventListener('click',()=>{
+    document.querySelectorAll('.tpl-card').forEach(x=>x.classList.remove('on'));
+    c.classList.add('on');certTpl=c.dataset.tpl;liveUpdate();
+  });
+});
+
+// ── Init ────────────────────────────────────────────────────────
+renderDyn();
+sv('fEnd',new Date().toISOString().slice(0,10));
+sv('fS1T','HR Manager');
+sv('fS2T','Director');
+// Wait for fonts then render
+document.fonts.ready.then(()=>liveUpdate());
+window.addEventListener('resize',liveUpdate);
+</script>
+
+<section style="max-width:1100px;margin:50px auto;padding:20px;line-height:1.8">
+<h2>Free Certificate Generator Online</h2>
+<p>CertifyPro helps students, educators, trainers, organizations and event organizers create professional certificates online. Generate internship certificates, participation certificates, training certificates and course completion certificates in minutes.</p>
+
+<h2>Internship Certificate Generator</h2>
+<p>Create professional internship completion certificates with customizable company names, internship roles, departments, dates and signatories.</p>
+
+<h2>Course Completion Certificates</h2>
+<p>Generate attractive course completion certificates for online courses, workshops, training programs and educational activities.</p>
+
+<h2>Participation & Training Certificates</h2>
+<p>Create certificates for seminars, webinars, competitions, workshops, bootcamps and corporate training sessions.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Is CertifyPro free?</h3>
+<p>Yes. You can create and download certificates for free.</p>
+
+<h3>Can I export certificates as PDF?</h3>
+<p>Yes. Certificates can be downloaded as PDF and PNG files.</p>
+
+<h3>Do I need to create an account?</h3>
+<p>No signup is required.</p>
+</section>
+
+</body>
+</html>
