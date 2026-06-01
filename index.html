@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <!-- Google tag (gtag.js) -->
+   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBRVHHK07Y"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -12,134 +12,420 @@
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Free Certificate Generator Online | Internship, Training & Course Certificates</title>
+<title>Free Certificate Generator Online | CertifyPro – Internship, Course & Training Certificates</title>
+<meta name="description" content="Create beautiful internship, course completion, training and participation certificates online. Free PDF & PNG download. No login required. Instant preview."/>
+<meta name="keywords" content="certificate generator, free certificate maker, internship certificate, course completion certificate, training certificate, participation certificate, offer letter generator"/>
+<meta property="og:title" content="CertifyPro – Free Certificate Generator Online"/>
+<meta property="og:description" content="Generate professional certificates instantly. Free PDF download, no signup required."/>
+<meta property="og:type" content="website"/>
+<link rel="canonical" href="https://mycertifypro.netlify.app/"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CertifyPro","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0"},"description":"Free online certificate generator for internship, course, training and participation certificates."}</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Cinzel:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Cinzel:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 <style>
-/* ─── APP SHELL ─────────────────────────────────────── */
-:root {
-  --bg:#f0ede7; --bg2:#e8e3db; --sur:#fff; --sur2:#faf8f5;
-  --brd:#ddd8d0; --txt:#1c1814; --txt2:#6b6258; --txt3:#a49e96;
-  --gld:#c9a84c; --gld2:#a07828; --gld-bg:#fdf5e0; --gld-brd:#e8d48c;
-  --r:14px; --sh:0 4px 24px rgba(0,0,0,.09);
+/* ─── TOKENS ──────────────────────────────────────────────── */
+:root{
+  --bg:#f5f2ec; --bg2:#ede9e1; --sur:#ffffff; --sur2:#faf8f4;
+  --brd:#e0dbd2; --brd2:#ccc5b8;
+  --txt:#1a1714; --txt2:#6a6258; --txt3:#a49e94;
+  --gld:#b8963a; --gld2:#8a6e22; --gld3:#d4af5a;
+  --gld-bg:#fdf6e3; --gld-brd:#e5d08a;
+  --r:12px; --r2:8px;
+  --sh:0 2px 16px rgba(0,0,0,.07);
+  --sh2:0 6px 32px rgba(0,0,0,.12);
+  --trans:all .2s cubic-bezier(.4,0,.2,1);
 }
 [data-theme=dark]{
-  --bg:#0e0c09; --bg2:#1a1813; --sur:#201d18; --sur2:#28251e;
-  --brd:#3a3628; --txt:#f0ebe2; --txt2:#9a9488; --txt3:#5c5850;
-  --gld:#d4a84c; --gld2:#e8c060; --gld-bg:#1c1808; --gld-brd:#4a3c18;
+  --bg:#0c0a07; --bg2:#161310; --sur:#1c1914; --sur2:#221e17;
+  --brd:#322d24; --brd2:#4a4438;
+  --txt:#f0eae0; --txt2:#9a9084; --txt3:#5c5650;
+  --gld:#c9a84c; --gld2:#e0bf68; --gld3:#a07828;
+  --gld-bg:#1a1504; --gld-brd:#3e3010;
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;transition:background .3s,color .3s}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;transition:background .3s,color .3s;-webkit-font-smoothing:antialiased}
 input,select,textarea,button{font-family:'DM Sans',sans-serif}
+a{color:inherit;text-decoration:none}
 
-/* ─── HEADER ──────────────────────────────────────── */
-header{position:sticky;top:0;z-index:200;background:var(--sur);border-bottom:1px solid var(--brd);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;backdrop-filter:blur(12px)}
-.logo{display:flex;align-items:center;gap:9px;text-decoration:none}
-.logo-mark{width:32px;height:32px;background:linear-gradient(135deg,#c9a84c,#a07828);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 2px 8px rgba(180,140,40,.35)}
-.logo-name{font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--txt);letter-spacing:.5px}
-.logo-name span{color:var(--gld)}
-.theme-btn{width:34px;height:34px;border-radius:8px;border:1px solid var(--brd);background:var(--sur2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--txt2);transition:all .18s}
-.theme-btn:hover{background:var(--bg2)}
+/* ─── SCROLLBAR ───────────────────────────────────────────── */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--brd2);border-radius:3px}
 
-/* ─── HERO ────────────────────────────────────────── */
-.hero{text-align:center;padding:42px 20px 28px;max-width:620px;margin:0 auto}
-.badge{display:inline-flex;align-items:center;gap:6px;background:var(--gld-bg);border:1px solid var(--gld-brd);border-radius:40px;padding:4px 14px;font-size:11px;font-weight:600;color:var(--gld);letter-spacing:.5px;margin-bottom:14px}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,48px);font-weight:700;line-height:1.08;margin-bottom:10px}
+/* ─── HEADER ──────────────────────────────────────────────── */
+header{
+  position:sticky;top:0;z-index:200;
+  background:rgba(255,255,255,.88);
+  border-bottom:1px solid var(--brd);
+  height:58px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 24px;
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  transition:background .3s,border-color .3s;
+}
+[data-theme=dark] header{background:rgba(28,25,20,.88)}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo-mark{
+  width:34px;height:34px;
+  background:linear-gradient(135deg,#c9a84c 0%,#8a6e22 100%);
+  border-radius:9px;display:flex;align-items:center;justify-content:center;
+  font-size:17px;box-shadow:0 3px 10px rgba(180,140,40,.3);
+  flex-shrink:0;
+}
+.logo-text{font-family:'Cinzel',serif;font-size:17px;font-weight:700;letter-spacing:.3px;color:var(--txt)}
+.logo-text span{color:var(--gld)}
+.header-right{display:flex;align-items:center;gap:10px}
+.header-nav{display:flex;gap:4px}
+.header-nav a{padding:6px 12px;border-radius:6px;font-size:12px;font-weight:500;color:var(--txt2);transition:var(--trans)}
+.header-nav a:hover{background:var(--bg2);color:var(--txt)}
+.theme-btn{
+  width:36px;height:36px;border-radius:8px;
+  border:1px solid var(--brd);background:var(--sur2);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:15px;color:var(--txt2);transition:var(--trans);
+}
+.theme-btn:hover{background:var(--bg2);border-color:var(--brd2)}
+@media(max-width:600px){.header-nav{display:none}}
+
+/* ─── HERO ───────────────────────────────────────────────── */
+.hero{
+  text-align:center;padding:52px 20px 32px;
+  max-width:640px;margin:0 auto;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--gld-bg);border:1px solid var(--gld-brd);
+  border-radius:40px;padding:5px 16px;
+  font-size:11px;font-weight:600;color:var(--gld);
+  letter-spacing:.8px;text-transform:uppercase;margin-bottom:18px;
+}
+.badge::before{content:'✦';font-size:9px}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,5vw,54px);font-weight:700;
+  line-height:1.06;margin-bottom:14px;letter-spacing:-.5px;
+}
 .hero h1 em{color:var(--gld);font-style:italic}
-.hero p{font-size:14px;color:var(--txt2);line-height:1.7;max-width:460px;margin:0 auto}
+.hero p{font-size:15px;color:var(--txt2);line-height:1.75;max-width:480px;margin:0 auto 22px}
+.hero-stats{
+  display:inline-flex;gap:24px;
+  background:var(--sur);border:1px solid var(--brd);
+  border-radius:40px;padding:10px 24px;
+  font-size:12px;color:var(--txt2);
+}
+.hero-stat{display:flex;align-items:center;gap:5px}
+.hero-stat strong{color:var(--txt);font-weight:600}
 
-/* ─── SECTIONS ────────────────────────────────────── */
-.sec{max-width:1160px;margin:0 auto;padding:0 20px 22px}
-.sec-lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+/* ─── SECTION WRAPPER ─────────────────────────────────────── */
+.sec{max-width:1180px;margin:0 auto;padding:0 20px 24px}
+.sec-lbl{
+  font-size:10px;font-weight:700;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--txt3);margin-bottom:14px;
+}
+
+/* ─── TYPE PILLS ──────────────────────────────────────────── */
 .pill-row{display:flex;gap:8px;flex-wrap:wrap}
-.pill{padding:9px 18px;border-radius:40px;border:1.5px solid var(--brd);background:var(--sur);font-size:13px;font-weight:500;color:var(--txt2);cursor:pointer;transition:all .18s;white-space:nowrap}
-.pill:hover{border-color:var(--gld);color:var(--gld)}
-.pill.on{background:var(--gld);border-color:var(--gld);color:#fff;box-shadow:0 4px 14px rgba(201,168,76,.35)}
+.pill{
+  padding:10px 20px;border-radius:40px;
+  border:1.5px solid var(--brd);background:var(--sur);
+  font-size:13px;font-weight:500;color:var(--txt2);
+  cursor:pointer;transition:var(--trans);white-space:nowrap;
+}
+.pill:hover{border-color:var(--gld);color:var(--gld);background:var(--gld-bg)}
+.pill.on{
+  background:linear-gradient(135deg,var(--gld),var(--gld2));
+  border-color:transparent;color:#fff;
+  box-shadow:0 4px 16px rgba(180,140,40,.3);
+}
 
-/* ─── TEMPLATE STRIP ──────────────────────────────── */
-.tpl-strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+/* ─── TEMPLATE STRIP ──────────────────────────────────────── */
+.tpl-strip{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
 .tpl-strip::-webkit-scrollbar{display:none}
-.tpl-card{flex-shrink:0;width:110px;cursor:pointer;border-radius:10px;overflow:hidden;border:2px solid var(--brd);transition:all .2s;background:var(--sur)}
-.tpl-card:hover{border-color:var(--gld);transform:translateY(-2px);box-shadow:var(--sh)}
-.tpl-card.on{border-color:var(--gld);box-shadow:0 0 0 2px var(--gld)}
-.tpl-thumb{height:68px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;letter-spacing:.5px}
-.tpl-name{text-align:center;padding:6px 4px;font-size:10px;font-weight:600;color:var(--txt2);border-top:1px solid var(--brd)}
+.tpl-card{
+  flex-shrink:0;width:120px;cursor:pointer;
+  border-radius:11px;overflow:hidden;
+  border:2px solid var(--brd);background:var(--sur);
+  transition:var(--trans);
+}
+.tpl-card:hover{border-color:var(--gld);transform:translateY(-3px);box-shadow:var(--sh2)}
+.tpl-card.on{border-color:var(--gld);box-shadow:0 0 0 3px rgba(200,168,76,.2)}
+.tpl-card.on .tpl-thumb::after{
+  content:'✓';position:absolute;top:6px;right:6px;
+  width:20px;height:20px;border-radius:50%;
+  background:var(--gld);color:#fff;
+  font-size:11px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.tpl-thumb{
+  height:76px;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;letter-spacing:.5px;
+  position:relative;
+}
+.tpl-name{
+  text-align:center;padding:7px 4px;font-size:10px;font-weight:600;
+  color:var(--txt2);border-top:1px solid var(--brd);
+}
 
-/* ─── MAIN GRID ───────────────────────────────────── */
-.main{display:grid;grid-template-columns:360px 1fr;gap:20px;max-width:1160px;margin:0 auto;padding:0 20px 60px}
-@media(max-width:840px){.main{grid-template-columns:1fr}}
+/* ─── MAIN GRID ───────────────────────────────────────────── */
+.main{
+  display:grid;grid-template-columns:380px 1fr;
+  gap:20px;max-width:1180px;margin:0 auto;padding:0 20px 60px;
+}
+@media(max-width:900px){.main{grid-template-columns:1fr}}
 
-/* ─── FORM CARD ───────────────────────────────────── */
-.card{background:var(--sur);border:1px solid var(--brd);border-radius:var(--r);overflow:hidden}
-.card-hdr{padding:14px 18px;border-bottom:1px solid var(--brd);display:flex;align-items:center;gap:9px}
-.card-icon{width:26px;height:26px;border-radius:6px;background:var(--gld-bg);display:flex;align-items:center;justify-content:center;font-size:13px}
-.card-title{font-size:13px;font-weight:600}
+/* ─── CARD ────────────────────────────────────────────────── */
+.card{
+  background:var(--sur);border:1px solid var(--brd);
+  border-radius:var(--r);overflow:hidden;
+  box-shadow:var(--sh);
+}
+.card-hdr{
+  padding:14px 18px;border-bottom:1px solid var(--brd);
+  display:flex;align-items:center;gap:10px;
+  background:var(--sur2);
+}
+.card-icon{
+  width:28px;height:28px;border-radius:7px;
+  background:var(--gld-bg);border:1px solid var(--gld-brd);
+  display:flex;align-items:center;justify-content:center;font-size:13px;
+}
+.card-title{font-size:13px;font-weight:600;color:var(--txt)}
 .card-body{padding:18px}
-.fg{margin-bottom:13px}
-.fg label{display:block;font-size:11px;font-weight:600;color:var(--txt2);margin-bottom:5px;letter-spacing:.2px}
+
+/* ─── FORM ELEMENTS ───────────────────────────────────────── */
+.fg{margin-bottom:14px}
+.fg label{
+  display:flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:600;color:var(--txt2);
+  margin-bottom:6px;letter-spacing:.3px;text-transform:uppercase;
+}
 .req{color:var(--gld)}
-input[type=text],input[type=date],select,textarea{width:100%;padding:9px 12px;border-radius:8px;border:1.5px solid var(--brd);background:var(--sur2);color:var(--txt);font-size:13px;outline:none;transition:border-color .18s,box-shadow .18s}
-input:focus,select:focus,textarea:focus{border-color:var(--gld);box-shadow:0 0 0 3px rgba(201,168,76,.13)}
-textarea{resize:vertical;min-height:54px;line-height:1.5}
+input[type=text],input[type=date],select,textarea{
+  width:100%;padding:10px 13px;border-radius:var(--r2);
+  border:1.5px solid var(--brd);background:var(--sur2);
+  color:var(--txt);font-size:13px;outline:none;
+  transition:border-color .18s,box-shadow .18s,background .18s;
+}
+input[type=text]:hover,input[type=date]:hover,select:hover{border-color:var(--brd2)}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--gld);background:var(--sur);
+  box-shadow:0 0 0 3px rgba(185,150,58,.13);
+}
+input[type=file]{
+  width:100%;padding:10px;border-radius:var(--r2);
+  border:1.5px dashed var(--brd);background:var(--sur2);
+  color:var(--txt2);font-size:12px;cursor:pointer;
+  transition:var(--trans);
+}
+input[type=file]:hover{border-color:var(--gld);background:var(--gld-bg)}
+textarea{resize:vertical;min-height:56px;line-height:1.6}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:480px){.row2{grid-template-columns:1fr}}
-.hint{font-size:10px;color:var(--txt3);margin-top:3px}
-.gen-strip{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap}
-.gbtn{padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--sur2);color:var(--gld);font-size:11px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+.hint{font-size:10px;color:var(--txt3);margin-top:4px;line-height:1.5}
+
+/* ─── RANDOM BUTTONS ──────────────────────────────────────── */
+.gen-strip{display:flex;gap:5px;margin-top:6px;flex-wrap:wrap}
+.gbtn{
+  padding:5px 10px;border-radius:6px;
+  border:1px solid var(--brd);background:var(--sur2);
+  color:var(--gld);font-size:11px;font-weight:600;
+  cursor:pointer;transition:var(--trans);white-space:nowrap;
+}
 .gbtn:hover{background:var(--gld);color:#fff;border-color:var(--gld)}
-.divider{display:flex;align-items:center;gap:8px;margin:14px 0}
-.divider span{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--txt3);white-space:nowrap}
+
+/* ─── DIVIDER ─────────────────────────────────────────────── */
+.divider{display:flex;align-items:center;gap:10px;margin:16px 0}
+.divider span{font-size:9px;font-weight:700;letter-spacing:2px;color:var(--txt3);white-space:nowrap}
 .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--brd)}
-.actions{display:flex;flex-direction:column;gap:9px;margin-top:16px}
-.btn-gold{padding:12px;border-radius:9px;border:none;background:linear-gradient(135deg,#c9a84c,#a07828);color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:.1px;box-shadow:0 3px 12px rgba(180,130,30,.3)}
-.btn-gold:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(180,130,30,.4)}
+
+/* ─── ACTION BUTTONS ──────────────────────────────────────── */
+.actions{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.btn-gold{
+  padding:13px;border-radius:10px;border:none;
+  background:linear-gradient(135deg,#c9a84c 0%,#8a6e22 100%);
+  color:#fff;font-size:14px;font-weight:600;
+  cursor:pointer;transition:var(--trans);
+  letter-spacing:.1px;box-shadow:0 4px 16px rgba(180,130,30,.3);
+  position:relative;overflow:hidden;
+}
+.btn-gold::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
+  opacity:0;transition:opacity .2s;
+}
+.btn-gold:hover::before{opacity:1}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(180,130,30,.4)}
+.btn-gold:active{transform:translateY(0)}
 .btn-row{display:flex;gap:8px}
-.btn-out{flex:1;padding:11px;border-radius:9px;border:1.5px solid var(--brd);background:transparent;color:var(--txt);font-size:13px;font-weight:500;cursor:pointer;transition:all .18s}
-.btn-out:hover{border-color:var(--gld);color:var(--gld)}
+.btn-out{
+  flex:1;padding:12px;border-radius:10px;
+  border:1.5px solid var(--brd);background:var(--sur2);
+  color:var(--txt);font-size:13px;font-weight:500;
+  cursor:pointer;transition:var(--trans);
+}
+.btn-out:hover{border-color:var(--gld);color:var(--gld);background:var(--gld-bg)}
+.btn-out:active{transform:scale(.99)}
 
-/* ─── PREVIEW PANEL ───────────────────────────────── */
-.preview-sticky{position:sticky;top:68px;align-self:start}
-.preview-wrap{background:var(--bg2);border-radius:10px;padding:10px;overflow:auto;max-height:78vh}
-.preview-wrap iframe{display:none}
+/* ─── CHAR COUNTER ────────────────────────────────────────── */
+.field-wrap{position:relative}
+.char-count{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  font-size:10px;color:var(--txt3);pointer-events:none;
+}
 
-/* ─── MODAL ───────────────────────────────────────── */
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:999;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(8px)}
-.overlay.open{display:flex}
-.modal{background:var(--sur);border-radius:var(--r);max-width:900px;width:100%;max-height:92vh;display:flex;flex-direction:column;box-shadow:0 20px 80px rgba(0,0,0,.4)}
-.modal-hdr{padding:14px 18px;border-bottom:1px solid var(--brd);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
-.modal-hdr-title{font-size:14px;font-weight:600}
-.modal-close{width:28px;height:28px;border-radius:6px;border:1px solid var(--brd);background:transparent;cursor:pointer;font-size:16px;color:var(--txt2);display:flex;align-items:center;justify-content:center}
+/* ─── PREVIEW PANEL ───────────────────────────────────────── */
+.preview-sticky{position:sticky;top:70px;align-self:start}
+.preview-hdr{padding:14px 18px;border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;background:var(--sur2)}
+.preview-scale-hint{font-size:10px;color:var(--txt3)}
+.preview-wrap{
+  background:var(--bg2);padding:10px;
+  overflow:auto;max-height:72vh;
+  border-radius:0 0 var(--r) var(--r);
+}
+.preview-empty{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  height:300px;gap:12px;color:var(--txt3);
+}
+.preview-empty .icon{font-size:40px;opacity:.4}
+.preview-empty p{font-size:13px}
+
+/* ─── QUALITY BADGE ───────────────────────────────────────── */
+.quality-row{
+  display:flex;gap:6px;flex-wrap:wrap;
+  padding:12px 18px;border-top:1px solid var(--brd);
+  background:var(--gld-bg);
+}
+.q-tag{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:10px;font-weight:600;color:var(--gld2);letter-spacing:.3px;
+}
+.q-tag::before{content:'✓';font-weight:700}
+
+/* ─── MODAL ───────────────────────────────────────────────── */
+.overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.88);z-index:999;
+  align-items:center;justify-content:center;
+  padding:16px;backdrop-filter:blur(10px);
+}
+.overlay.open{display:flex;animation:fadeIn .2s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{
+  background:var(--sur);border-radius:var(--r);
+  max-width:920px;width:100%;max-height:93vh;
+  display:flex;flex-direction:column;
+  box-shadow:0 24px 90px rgba(0,0,0,.5);
+  animation:slideUp .22s cubic-bezier(.4,0,.2,1);
+}
+@keyframes slideUp{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
+.modal-hdr{
+  padding:16px 20px;border-bottom:1px solid var(--brd);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-shrink:0;background:var(--sur2);
+}
+.modal-hdr-title{font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px}
+.modal-close{
+  width:30px;height:30px;border-radius:7px;
+  border:1px solid var(--brd);background:transparent;
+  cursor:pointer;font-size:17px;color:var(--txt2);
+  display:flex;align-items:center;justify-content:center;
+  transition:var(--trans);
+}
+.modal-close:hover{background:var(--bg2);color:var(--txt)}
 .modal-body{padding:16px;overflow:auto;flex:1}
-.modal-ftr{padding:12px 18px;border-top:1px solid var(--brd);display:flex;gap:8px;justify-content:flex-end;flex-shrink:0}
+.modal-ftr{
+  padding:14px 20px;border-top:1px solid var(--brd);
+  display:flex;gap:10px;justify-content:flex-end;flex-shrink:0;
+}
 .modal-ftr .btn-out{flex:unset;padding:10px 20px}
-.modal-ftr .btn-gold{flex:unset;padding:10px 22px;font-size:13px}
+.modal-ftr .btn-gold{flex:unset;padding:10px 24px;font-size:13px}
 
-/* ─── TOAST ───────────────────────────────────────── */
-.toast{position:fixed;bottom:24px;right:24px;background:var(--txt);color:var(--bg);padding:11px 18px;border-radius:9px;font-size:13px;font-weight:500;z-index:9999;transform:translateY(60px);opacity:0;transition:all .28s;pointer-events:none}
+/* ─── PROGRESS BAR ────────────────────────────────────────── */
+.progress-bar{
+  height:3px;background:var(--brd);border-radius:2px;
+  margin:14px 18px 0;overflow:hidden;
+}
+.progress-fill{
+  height:100%;background:linear-gradient(90deg,var(--gld),var(--gld3));
+  border-radius:2px;transition:width .4s ease;
+}
+
+/* ─── TOAST ───────────────────────────────────────────────── */
+.toast{
+  position:fixed;bottom:28px;right:28px;
+  background:var(--txt);color:var(--bg);
+  padding:12px 20px;border-radius:10px;
+  font-size:13px;font-weight:500;z-index:9999;
+  transform:translateY(60px);opacity:0;
+  transition:all .3s cubic-bezier(.4,0,.2,1);
+  pointer-events:none;display:flex;align-items:center;gap:8px;
+  box-shadow:0 8px 30px rgba(0,0,0,.3);
+}
 .toast.show{transform:translateY(0);opacity:1}
+.toast.success{background:#1a7a4a;color:#fff}
+.toast.error{background:#c0392b;color:#fff}
 
-@media(max-width:600px){
-  .hero,.sec,.main{padding-left:14px;padding-right:14px}
-  .hero{padding-top:28px;padding-bottom:18px}
+/* ─── SEO SECTIONS ────────────────────────────────────────── */
+.seo-section{
+  max-width:1180px;margin:0 auto;padding:32px 20px 48px;
+  border-top:1px solid var(--brd);
 }
+.seo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:20px}
+.seo-block{padding:20px;background:var(--sur);border:1px solid var(--brd);border-radius:var(--r)}
+.seo-block h3{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;margin-bottom:8px;color:var(--txt)}
+.seo-block p{font-size:13px;color:var(--txt2);line-height:1.7}
+.faq{max-width:700px}
+.faq-item{border-bottom:1px solid var(--brd);padding:16px 0;cursor:pointer}
+.faq-q{font-size:14px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:'+';font-size:18px;color:var(--gld);flex-shrink:0}
+.faq-item.open .faq-q::after{content:'−'}
+.faq-a{font-size:13px;color:var(--txt2);line-height:1.7;margin-top:10px;display:none}
+.faq-item.open .faq-a{display:block}
+.popular-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.popular-links a{
+  padding:8px 14px;border-radius:40px;
+  border:1px solid var(--brd);background:var(--sur);
+  font-size:12px;color:var(--txt2);transition:var(--trans);
+}
+.popular-links a:hover{border-color:var(--gld);color:var(--gld);background:var(--gld-bg)}
 
-/* ════════════════════════════════════════════════════
-   CERTIFICATE HTML TEMPLATES (rendered as DOM)
-   ════════════════════════════════════════════════════ */
+/* ─── FOOTER ──────────────────────────────────────────────── */
+footer{
+  border-top:1px solid var(--brd);background:var(--sur2);
+  padding:24px 20px;text-align:center;
+}
+.footer-inner{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.footer-brand{font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:var(--txt)}
+.footer-brand span{color:var(--gld)}
+.footer-copy{font-size:12px;color:var(--txt3)}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.footer-links a{font-size:12px;color:var(--txt2);transition:color .18s}
+.footer-links a:hover{color:var(--gld)}
 
-/* ── Shared cert shell ── */
+/* ─── MOBILE BOTTOM ACTIONS ───────────────────────────────── */
+.mobile-bar{
+  display:none;position:fixed;bottom:0;left:0;right:0;
+  background:var(--sur);border-top:1px solid var(--brd);
+  padding:10px 16px;z-index:100;gap:8px;
+  backdrop-filter:blur(12px);
+}
+@media(max-width:900px){.mobile-bar{display:flex}}
+
+/* ──────────────────────────────────────────────────────────
+   CERTIFICATE STYLES
+─────────────────────────────────────────────────────────── */
 .cert-root{
-  width:842px; height:596px;
-  position:relative; overflow:hidden;
-  flex-shrink:0;
+  width:842px;height:596px;position:relative;overflow:hidden;flex-shrink:0;
   font-family:'EB Garamond',serif;
-  -webkit-print-color-adjust:exact;
-  print-color-adjust:exact;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
 }
 
-/* ════ TEMPLATE A: ROYAL GOLD ════ */
+/* ══ ROYAL GOLD ══ */
 .cert-royal{background:linear-gradient(160deg,#0d0a1e 0%,#16123a 45%,#0d0a1e 100%)}
 .cert-royal .r-outerBorder{position:absolute;inset:14px;border:2px solid #b8922e;border-radius:2px}
 .cert-royal .r-innerBorder{position:absolute;inset:22px;border:1px solid rgba(184,146,46,.35)}
@@ -174,7 +460,7 @@ textarea{resize:vertical;min-height:54px;line-height:1.5}
 .cert-royal .r-certid{position:absolute;bottom:10px;right:24px;font-size:8px;color:rgba(184,146,46,.3);font-family:'DM Sans',sans-serif;letter-spacing:1px}
 .cert-royal .r-brand{position:absolute;bottom:10px;left:24px;font-size:8px;color:rgba(184,146,46,.3);font-family:'DM Sans',sans-serif;letter-spacing:1px}
 
-/* ════ TEMPLATE B: WAVE CRIMSON ════ */
+/* ══ WAVE CRIMSON ══ */
 .cert-wave{background:#fff}
 .cert-wave .w-wave-bl{position:absolute;bottom:0;left:0;width:260px;height:200px}
 .cert-wave .w-wave-tr{position:absolute;top:0;right:0;width:220px;height:180px}
@@ -204,7 +490,7 @@ textarea{resize:vertical;min-height:54px;line-height:1.5}
 .cert-wave .w-seal{width:50px;height:50px;border-radius:50%;border:2px solid #c0392b;display:flex;align-items:center;justify-content:center;font-size:20px;background:rgba(192,57,43,.05)}
 .cert-wave .w-certid{position:absolute;bottom:8px;right:18px;font-size:8px;color:#c0a888;font-family:'DM Sans',sans-serif}
 
-/* ════ TEMPLATE C: CORPORATE NAVY ════ */
+/* ══ CORPORATE NAVY ══ */
 .cert-navy{background:#fff}
 .cert-navy .n-header{position:absolute;top:0;left:0;right:0;height:120px;background:linear-gradient(135deg,#0a1628 0%,#1e3a5f 100%)}
 .cert-navy .n-header-accent{position:absolute;top:120px;left:0;right:0;height:4px;background:linear-gradient(90deg,#4a9eff,#0a1628)}
@@ -235,7 +521,7 @@ textarea{resize:vertical;min-height:54px;line-height:1.5}
 .cert-navy .n-stamp{width:62px;height:62px;border-radius:50%;border:2px solid #0a1628;background:#eef4ff;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;margin-left:16px}
 .cert-navy .n-certid{position:absolute;bottom:8px;right:18px;font-size:8px;color:#b0c8e0;font-family:'DM Sans',sans-serif}
 
-/* ════ TEMPLATE D: EMERALD LUXURY ════ */
+/* ══ EMERALD LUXURY ══ */
 .cert-emerald{background:linear-gradient(150deg,#021510 0%,#063020 40%,#021510 100%)}
 .cert-emerald .e-outer{position:absolute;inset:12px;border:1.5px solid #1d6b3e}
 .cert-emerald .e-inner{position:absolute;inset:20px;border:1px solid rgba(76,175,120,.2)}
@@ -267,7 +553,7 @@ textarea{resize:vertical;min-height:54px;line-height:1.5}
 .cert-emerald .e-seal{width:52px;height:52px;border-radius:50%;border:1.5px solid #2d8a52;background:rgba(45,138,82,.12);display:flex;align-items:center;justify-content:center;font-size:22px}
 .cert-emerald .e-certid{position:absolute;bottom:8px;right:20px;font-size:8px;color:rgba(76,175,120,.25);font-family:'DM Sans',sans-serif}
 
-/* ════ TEMPLATE E: PARCHMENT ANTIQUE ════ */
+/* ══ PARCHMENT ANTIQUE ══ */
 .cert-parchment{background:linear-gradient(160deg,#f6e8c4 0%,#edda9e 40%,#f2e4b0 70%,#e8d490 100%)}
 .cert-parchment .p-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 50%,transparent 40%,rgba(80,44,8,.22) 100%)}
 .cert-parchment .p-outer{position:absolute;inset:12px;border:2.5px solid #8b6010}
@@ -303,7 +589,7 @@ textarea{resize:vertical;min-height:54px;line-height:1.5}
 .cert-parchment .p-seal{width:50px;height:50px;border-radius:50%;border:2px solid #8b6010;display:flex;align-items:center;justify-content:center;font-size:20px;background:rgba(139,96,16,.08)}
 .cert-parchment .p-certid{position:absolute;bottom:8px;right:18px;font-size:8px;color:rgba(90,60,16,.35);font-family:'DM Sans',sans-serif}
 
-/* ════ TEMPLATE F: MODERN EDGE ════ */
+/* ══ MODERN EDGE ══ */
 .cert-modern{background:#f8f8f8}
 .cert-modern .m-sidebar{position:absolute;top:0;left:0;bottom:0;width:10px;background:linear-gradient(180deg,#e63946 0%,#c1121f 50%,#e63946 100%)}
 .cert-modern .m-top-tri{position:absolute;top:0;right:0;width:0;height:0;border-left:180px solid transparent;border-top:180px solid rgba(230,57,70,.06)}
@@ -320,7 +606,7 @@ textarea{resize:vertical;min-height:54px;line-height:1.5}
 .cert-modern .m-mid{display:flex;flex-direction:column;gap:0;flex:1;justify-content:center;padding:20px 0 10px}
 .cert-modern .m-certify{font-size:12px;color:#888;font-family:'DM Sans',sans-serif;margin-bottom:8px}
 .cert-modern .m-name{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:700;font-style:italic;color:#1a1a2e;line-height:1;letter-spacing:-1px}
-.cert-modern .m-accent{width:0;height:4px;background:linear-gradient(90deg,#e63946,#ff6b7a);border-radius:2px;margin:8px 0 16px;transition:width .3s}
+.cert-modern .m-accent{width:180px;height:4px;background:linear-gradient(90deg,#e63946,#ff6b7a);border-radius:2px;margin:8px 0 16px}
 .cert-modern .m-detail{font-size:13px;color:#3a3a4a;font-family:'DM Sans',sans-serif;line-height:1.7;margin-bottom:4px}
 .cert-modern .m-role{font-size:15px;font-weight:700;color:#1a1a2e;font-family:'DM Sans',sans-serif}
 .cert-modern .m-sub-detail{font-size:11px;color:#888;font-family:'DM Sans',sans-serif}
@@ -333,54 +619,88 @@ textarea{resize:vertical;min-height:54px;line-height:1.5}
 .cert-modern .m-sig-title{font-size:9px;color:#aaa;font-family:'DM Sans',sans-serif}
 .cert-modern .m-stamp{width:56px;height:56px;border-radius:50%;border:2px solid #e63946;background:rgba(230,57,70,.06);display:flex;align-items:center;justify-content:center;font-size:22px}
 .cert-modern .m-certid{position:absolute;bottom:8px;right:14px;font-size:8px;color:#ccc;font-family:'DM Sans',sans-serif}
-</style>
 
-<meta name="description" content="Create internship certificates, training certificates, participation certificates and course completion certificates online. Free PDF download, no signup required.">
-<meta name="keywords" content="certificate generator, internship certificate generator, course certificate generator, training certificate generator, participation certificate generator">
-<meta property="og:title" content="Free Certificate Generator Online">
-<meta property="og:description" content="Generate professional certificates instantly with free PDF download.">
-<meta property="og:type" content="website">
-<link rel="canonical" href="https://certifypro.netlify.app/">
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"WebApplication",
-  "name":"CertifyPro",
-  "applicationCategory":"BusinessApplication",
-  "operatingSystem":"Web",
-  "offers":{"@type":"Offer","price":"0"}
+/* ══ NEW: APPRECIATION (VIOLET) ══ */
+.cert-violet{background:linear-gradient(160deg,#1a0a2e 0%,#2d1654 45%,#1a0a2e 100%)}
+.cert-violet .v-outer{position:absolute;inset:14px;border:2px solid #8b5cf6;border-radius:2px}
+.cert-violet .v-inner{position:absolute;inset:22px;border:1px solid rgba(139,92,246,.3)}
+.cert-violet .v-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(139,92,246,.12),transparent)}
+.cert-violet .v-content{position:absolute;inset:30px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;padding:10px 40px}
+.cert-violet .v-top{display:flex;flex-direction:column;align-items:center;gap:5px}
+.cert-violet .v-seal{width:52px;height:52px;border-radius:50%;border:1.5px solid #8b5cf6;display:flex;align-items:center;justify-content:center;background:rgba(139,92,246,.15);font-size:22px}
+.cert-violet .v-org{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3.5px;color:#c4b5fd;text-transform:uppercase}
+.cert-violet .v-line{width:200px;height:1px;background:linear-gradient(90deg,transparent,#8b5cf6,transparent);margin:5px auto}
+.cert-violet .v-certtype{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(196,181,253,.5);text-transform:uppercase}
+.cert-violet .v-mid{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;justify-content:center}
+.cert-violet .v-presenting{font-size:13px;color:rgba(220,210,255,.6);font-style:italic}
+.cert-violet .v-name{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;font-style:italic;color:#e9d5ff;line-height:1;letter-spacing:-1px}
+.cert-violet .v-nameline{width:320px;height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.7),transparent);margin:4px auto}
+.cert-violet .v-detail{font-size:13px;color:rgba(220,210,255,.75);line-height:1.7;max-width:480px}
+.cert-violet .v-highlight{color:#c4b5fd;font-weight:600;font-style:italic;font-size:15px}
+.cert-violet .v-dates{font-size:11px;color:rgba(139,92,246,.5);letter-spacing:.5px}
+.cert-violet .v-bottom{width:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:start;padding-top:8px;border-top:1px solid rgba(139,92,246,.2)}
+.cert-violet .v-sig{display:flex;flex-direction:column;align-items:center;gap:4px}
+.cert-violet .v-sig-name{font-family:'Great Vibes',cursive;font-size:22px;color:rgba(220,210,255,.9);line-height:1}
+.cert-violet .v-sig-line{width:110px;height:1px;background:rgba(139,92,246,.4);margin:2px auto}
+.cert-violet .v-sig-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(139,92,246,.6);font-family:'DM Sans',sans-serif}
+.cert-violet .v-sig-title{font-size:9px;color:rgba(139,92,246,.4);font-family:'DM Sans',sans-serif}
+.cert-violet .v-center-seal{display:flex;align-items:center;justify-content:center;padding:0 20px}
+.cert-violet .v-seal-circle{width:52px;height:52px;border-radius:50%;border:1.5px solid #8b5cf6;background:rgba(139,92,246,.1);display:flex;align-items:center;justify-content:center;font-size:22px}
+.cert-violet .v-certid{position:absolute;bottom:10px;right:24px;font-size:8px;color:rgba(139,92,246,.25);font-family:'DM Sans',sans-serif;letter-spacing:1px}
+.cert-violet .v-brand{position:absolute;bottom:10px;left:24px;font-size:8px;color:rgba(139,92,246,.25);font-family:'DM Sans',sans-serif;letter-spacing:1px}
+
+@media(max-width:600px){
+  .hero,.sec{padding-left:14px;padding-right:14px}
+  .hero{padding-top:32px;padding-bottom:20px}
+  .main{padding:0 14px 80px}
 }
-</script>
-
+</style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-  <a class="logo" href="#">
+  <div class="logo" onclick="location.href='#'">
     <div class="logo-mark">🎓</div>
-    <div class="logo-name">Certify<span>Pro</span></div>
-  </a>
-  <button class="theme-btn" id="themeBtn" title="Toggle theme">🌙</button>
+    <div class="logo-text">Certify<span>Pro</span></div>
+  </div>
+  <div class="header-right">
+    <nav class="header-nav">
+      <a href="internship-certificate-generator.html">Internship</a>
+      <a href="course-certificate-generator.html">Course</a>
+      <a href="training-certificate-generator.html">Training</a>
+      <a href="participation-certificate-generator.html">Participation</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" title="Toggle theme" aria-label="Toggle dark mode">🌙</button>
+  </div>
 </header>
 
+<!-- HERO -->
 <div class="hero">
-  <div class="badge">✦ Free · No Login · Instant PDF Download</div>
-  <h1>Create Professional Certificates<br><em>Online in Minutes</em></h1>
-  <p>Generate internship, training, participation and course completion certificates instantly. Customize details, preview live and download PDF for free.</p>
+  <div class="badge">Free · No Login · Instant PDF Download</div>
+  <h1>Create Professional<br>Certificates <em>Online in Minutes</em></h1>
+  <p>Generate internship, training, participation and course completion certificates instantly. Customize details, live preview and download PDF or PNG for free.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">🎓 <strong>7</strong> Templates</div>
+    <div class="hero-stat">⚡ <strong>5</strong> Cert Types</div>
+    <div class="hero-stat">📥 <strong>PDF + PNG</strong></div>
+    <div class="hero-stat">🔒 <strong>No Signup</strong></div>
+  </div>
 </div>
 
-<!-- TYPE -->
+<!-- TYPE SELECTOR -->
 <div class="sec">
   <div class="sec-lbl">Certificate Type</div>
   <div class="pill-row">
     <button class="pill on" data-type="internship">🏢 Internship Completion</button>
     <button class="pill" data-type="job">💼 Job Experience Letter</button>
     <button class="pill" data-type="course">📚 Course Completion</button>
+    <button class="pill" data-type="participation">🏆 Participation</button>
     <button class="pill" data-type="offer">📄 Offer Letter</button>
   </div>
 </div>
 
-<!-- TEMPLATES -->
+<!-- TEMPLATE SELECTOR -->
 <div class="sec">
   <div class="sec-lbl">Choose Template</div>
   <div class="tpl-strip">
@@ -408,25 +728,36 @@ textarea{resize:vertical;min-height:54px;line-height:1.5}
       <div class="tpl-thumb" style="background:#f8f8f8;color:#1a1a2e;border-left:6px solid #e63946">⚡ EDGE</div>
       <div class="tpl-name">Modern Edge</div>
     </div>
+    <div class="tpl-card" data-tpl="violet">
+      <div class="tpl-thumb" style="background:linear-gradient(135deg,#1a0a2e,#2d1654);color:#c4b5fd">✨ VIOLET</div>
+      <div class="tpl-name">Violet Prestige</div>
+    </div>
   </div>
 </div>
 
-<!-- MAIN -->
+<!-- MAIN GRID -->
 <div class="main">
-  <!-- FORM -->
+
+  <!-- FORM CARD -->
   <div class="card" style="align-self:start">
     <div class="card-hdr">
       <div class="card-icon">✏️</div>
       <div class="card-title">Certificate Details</div>
     </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+
     <div class="card-body">
       <div class="fg">
         <label>Recipient Full Name <span class="req">*</span></label>
-        <input type="text" id="fName" placeholder="e.g. Priya Sharma" oninput="liveUpdate()"/>
+        <div class="field-wrap">
+          <input type="text" id="fName" placeholder="e.g. Priya Sharma" oninput="liveUpdate();updateProgress()" maxlength="60"/>
+        </div>
       </div>
       <div class="fg">
         <label>Organisation / Company <span class="req">*</span></label>
-        <input type="text" id="fOrg" placeholder="e.g. TechNova Solutions Pvt. Ltd." oninput="liveUpdate()"/>
+        <input type="text" id="fOrg" placeholder="e.g. TechNova Solutions Pvt. Ltd." oninput="liveUpdate();updateProgress()"/>
         <div class="gen-strip">
           <button class="gbtn" onclick="genCompany()">🎲 Corporate</button>
           <button class="gbtn" onclick="genStartup()">🚀 Startup</button>
@@ -443,7 +774,7 @@ textarea{resize:vertical;min-height:54px;line-height:1.5}
         </div>
         <div class="fg">
           <label>End / Issue Date <span class="req">*</span></label>
-          <input type="date" id="fEnd" oninput="liveUpdate()"/>
+          <input type="date" id="fEnd" oninput="liveUpdate();updateProgress()"/>
         </div>
       </div>
 
@@ -462,7 +793,7 @@ textarea{resize:vertical;min-height:54px;line-height:1.5}
       </div>
       <div class="row2">
         <div class="fg">
-          <label>Signatory 2 Name</label>
+          <label>Signatory 2 Name <span style="color:var(--txt3);font-weight:400;text-transform:none;font-size:10px">(optional)</span></label>
           <input type="text" id="fS2N" placeholder="Vikram Patel" oninput="liveUpdate()"/>
           <div class="gen-strip"><button class="gbtn" onclick="genSig(2)">🎲 Random</button></div>
         </div>
@@ -472,18 +803,20 @@ textarea{resize:vertical;min-height:54px;line-height:1.5}
         </div>
       </div>
 
+      <div class="divider"><span>EXTRAS</span></div>
+
       <div class="fg">
-        <label>Certificate ID <span style="color:var(--txt3)">(optional)</span></label>
+        <label>Certificate ID <span style="color:var(--txt3);font-weight:400;text-transform:none;font-size:10px">(optional)</span></label>
         <div style="display:flex;gap:6px">
           <input type="text" id="fCID" placeholder="CP-2024-0042" oninput="liveUpdate()" style="flex:1"/>
-          <button class="gbtn" onclick="genCID()" style="flex-shrink:0">🎲</button>
+          <button class="gbtn" onclick="genCID()" style="flex-shrink:0;padding:10px 12px">🎲</button>
         </div>
       </div>
 
       <div class="fg">
-        <label>Upload Logo <span style="color:var(--txt3)">(optional)</span></label>
+        <label>Upload Logo <span style="color:var(--txt3);font-weight:400;text-transform:none;font-size:10px">(optional)</span></label>
         <input type="file" id="fLogo" accept="image/*" onchange="handleLogo(this)"/>
-        <div class="hint">PNG/JPG logo will appear on the certificate</div>
+        <div class="hint">PNG/JPG logo will appear on the certificate · Recommended: 200×200px square</div>
       </div>
 
       <div class="actions">
@@ -494,29 +827,45 @@ textarea{resize:vertical;min-height:54px;line-height:1.5}
         </div>
       </div>
     </div>
+
+    <!-- QUALITY BADGES -->
+    <div class="quality-row">
+      <span class="q-tag">PDF + PNG Export</span>
+      <span class="q-tag">Live Preview</span>
+      <span class="q-tag">Logo Upload</span>
+      <span class="q-tag">Dark Mode</span>
+      <span class="q-tag">Mobile Friendly</span>
+    </div>
   </div>
 
-  <!-- LIVE PREVIEW -->
+  <!-- LIVE PREVIEW CARD -->
   <div class="card preview-sticky">
-    <div class="card-hdr">
-      <div class="card-icon">👁</div>
-      <div class="card-title">Live Preview</div>
+    <div class="preview-hdr">
+      <div style="display:flex;align-items:center;gap:8px">
+        <div class="card-icon">👁</div>
+        <div class="card-title">Live Preview</div>
+      </div>
+      <span class="preview-scale-hint">Auto-scaled to fit</span>
     </div>
-    <div class="card-body" style="padding:10px">
-      <div class="preview-wrap" id="liveWrap"></div>
+    <div class="preview-wrap" id="liveWrap">
+      <div class="preview-empty" id="previewEmpty">
+        <div class="icon">🎓</div>
+        <p>Fill in the details to see your certificate</p>
+      </div>
     </div>
   </div>
-</div>
+
+</div><!-- /main -->
 
 <!-- MODAL -->
 <div class="overlay" id="modal">
   <div class="modal">
     <div class="modal-hdr">
       <div class="modal-hdr-title">📋 Full Certificate Preview</div>
-      <button class="modal-close" onclick="closeModal()">×</button>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
     </div>
     <div class="modal-body">
-      <div id="modalWrap" style="overflow:auto"></div>
+      <div id="modalWrap" style="overflow:auto;text-align:center"></div>
     </div>
     <div class="modal-ftr">
       <button class="btn-out" onclick="closeModal()">Close</button>
@@ -526,13 +875,101 @@ textarea{resize:vertical;min-height:54px;line-height:1.5}
   </div>
 </div>
 
-<!-- HIDDEN CERT (full size for export) -->
+<!-- EXPORT TARGET (off-screen) -->
 <div id="exportTarget" style="position:fixed;top:-9999px;left:-9999px;z-index:-1;pointer-events:none"></div>
 
-<div class="toast" id="toast"></div>
+<!-- TOAST -->
+<div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+<!-- MOBILE BAR -->
+<div class="mobile-bar">
+  <button class="btn-gold" style="flex:1;padding:12px" onclick="openModal()">👁 Preview</button>
+  <button class="btn-out" style="padding:12px 14px" onclick="dlPDF()">⬇ PDF</button>
+  <button class="btn-out" style="padding:12px 14px" onclick="dlPNG()">🖼 PNG</button>
+</div>
+
+<!-- SEO CONTENT -->
+<div class="seo-section">
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;margin-bottom:8px">Free Certificate Generator Online</h2>
+  <p style="font-size:14px;color:var(--txt2);max-width:640px;line-height:1.7">CertifyPro helps students, educators, trainers, organisations and event organisers create professional certificates online. Generate internship certificates, participation certificates, training certificates and course completion certificates in minutes — completely free.</p>
+
+  <div class="seo-grid">
+    <div class="seo-block">
+      <h3>Internship Certificate Generator</h3>
+      <p>Create professional internship completion certificates with customisable company names, roles, departments, dates and signatories. Download as PDF or PNG instantly.</p>
+    </div>
+    <div class="seo-block">
+      <h3>Course Completion Certificates</h3>
+      <p>Generate attractive course completion certificates for online courses, workshops, training programmes and educational activities. Include grades and hours.</p>
+    </div>
+    <div class="seo-block">
+      <h3>Participation & Training</h3>
+      <p>Create certificates for seminars, webinars, competitions, workshops, bootcamps and corporate training sessions with professional templates.</p>
+    </div>
+    <div class="seo-block">
+      <h3>Offer Letter Generator</h3>
+      <p>Generate professional offer letters with joining dates, CTC details, department and role. Download in PDF format and share with candidates.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:32px">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;margin-bottom:16px">Frequently Asked Questions</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is CertifyPro completely free?</div>
+        <div class="faq-a">Yes — 100% free. All templates, PDF downloads, PNG exports and logo uploads are free with no hidden charges, no watermarks and no account required.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do I need to sign up or create an account?</div>
+        <div class="faq-a">No signup is required. Open the website, fill in your details and download your certificate. That's it.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I export certificates as PDF?</div>
+        <div class="faq-a">Yes. Certificates can be downloaded as print-ready PDF files (A4 landscape) and as PNG images suitable for sharing digitally.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I add my company logo?</div>
+        <div class="faq-a">Yes! Use the "Upload Logo" option to add your company or institution logo. The logo will appear on the certificate and is included in the exported PDF/PNG.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What certificate types are supported?</div>
+        <div class="faq-a">CertifyPro supports Internship Completion, Job Experience, Course Completion, Participation and Offer Letter certificates — with 7 unique templates to choose from.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is my data private?</div>
+        <div class="faq-a">All certificate generation happens entirely in your browser. No data is sent to any server. Your information stays completely private.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:32px">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:12px">Popular Certificate Generators</h2>
+    <div class="popular-links">
+      <a href="internship-certificate-generator.html">🏢 Internship Certificate Generator</a>
+      <a href="course-certificate-generator.html">📚 Course Certificate Generator</a>
+      <a href="training-certificate-generator.html">🏫 Training Certificate Generator</a>
+      <a href="participation-certificate-generator.html">🏆 Participation Certificate Generator</a>
+      <a href="appreciation-certificate-generator.html">🌟 Appreciation Certificate Generator</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Certify<span>Pro</span></div>
+    <div class="footer-links">
+      <a href="internship-certificate-generator.html">Internship</a>
+      <a href="course-certificate-generator.html">Course</a>
+      <a href="training-certificate-generator.html">Training</a>
+      <a href="participation-certificate-generator.html">Participation</a>
+    </div>
+    <div class="footer-copy">© 2025 CertifyPro · Free · No Login · No Watermark</div>
+  </div>
+</footer>
 
 <script>
-// ── Data ────────────────────────────────────────────────────────
+// ── DATA ─────────────────────────────────────────────────────
 const CORPS=['Tata Consultancy Services Ltd.','Infosys Technologies Pvt. Ltd.','Wipro Digital Solutions Ltd.','HCL Technologies Ltd.','Reliance Industries Ltd.','Mahindra & Mahindra Ltd.','Bajaj Finserv Ltd.','Larsen & Toubro Ltd.'];
 const STARTUPS=['Razorpay Payments Pvt. Ltd.','Zerodha Broking Ltd.','Groww Technologies Pvt. Ltd.','Meesho Supply Chain Pvt. Ltd.','upGrad Education Pvt. Ltd.','ClearTax Technologies Ltd.','Unacademy Learning Pvt. Ltd.'];
 const MNCS=['Google India Pvt. Ltd.','Microsoft India R&D Pvt. Ltd.','Amazon Development Centre India','IBM India Pvt. Ltd.','Accenture Solutions Pvt. Ltd.','Deloitte Consulting India LLP','Goldman Sachs India Pvt. Ltd.'];
@@ -542,9 +979,27 @@ const SIGTITLES=['Chief Executive Officer','Managing Director','VP – Human Res
 const ROLES=['Software Development Engineer','Product Manager','Data Analyst','UI/UX Designer','Business Development Associate','Digital Marketing Specialist','Full Stack Developer','Machine Learning Engineer','Content Strategist','Operations Manager'];
 const DEPTS=['Engineering & Technology','Product Management','Marketing & Communications','Finance & Accounts','Design & UX','Data Science','Business Development','Human Resources'];
 const COURSES=['Full Stack Web Development','Python for Data Science','Digital Marketing & Growth Hacking','UI/UX Design Fundamentals','Cloud Computing with AWS','Business Analytics','Advanced React.js','Cyber Security Essentials','Product Management Certification'];
+const EVENTS=['National Hackathon 2025','Annual Tech Symposium','AI & ML Workshop','Leadership Summit 2025','Digital Skills Bootcamp','Innovation Challenge','Data Science Conference','Web3 Developer Workshop'];
 
 const rnd=a=>a[Math.floor(Math.random()*a.length)];
 let certType='internship', certTpl='royal', logoDataUrl=null;
+
+// ── THEME ───────────────────────────────────────────────────
+document.getElementById('themeBtn').onclick=()=>{
+  const d=document.documentElement, dark=d.dataset.theme==='dark';
+  d.dataset.theme=dark?'light':'dark';
+  document.getElementById('themeBtn').textContent=dark?'🌙':'☀️';
+  localStorage.setItem('theme',dark?'light':'dark');
+};
+// Restore theme
+const saved=localStorage.getItem('theme');
+if(saved){document.documentElement.dataset.theme=saved;document.getElementById('themeBtn').textContent=saved==='dark'?'☀️':'🌙';}
+
+// ── HELPERS ─────────────────────────────────────────────────
+const ge=id=>document.getElementById(id);
+const gv=id=>{const e=ge(id);return e?e.value.trim():'';}
+const sv=(id,v)=>{const e=ge(id);if(e)e.value=v;}
+const fmtD=d=>{if(!d)return '';return new Date(d+'T12:00:00').toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});};
 
 function genCompany(){sv('fOrg',rnd(CORPS));liveUpdate();}
 function genStartup(){sv('fOrg',rnd(STARTUPS));liveUpdate();}
@@ -554,19 +1009,17 @@ function genCID(){sv('fCID','CP-'+new Date().getFullYear()+'-'+String(Math.floor
 function genRoleField(){const e=ge('fRole');if(e){e.value=rnd(ROLES);liveUpdate();}}
 function genDeptField(){const e=ge('fDept');if(e){e.value=rnd(DEPTS);liveUpdate();}}
 function genCourseField(){const e=ge('fCourse');if(e){e.value=rnd(COURSES);liveUpdate();}}
+function genEventField(){const e=ge('fEvent');if(e){e.value=rnd(EVENTS);liveUpdate();}}
 
-const ge=id=>document.getElementById(id);
-const gv=id=>{const e=ge(id);return e?e.value.trim():'';}
-const sv=(id,v)=>{const e=ge(id);if(e)e.value=v;}
-const fmtD=d=>{if(!d)return '';return new Date(d+'T12:00:00').toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});};
+// ── PROGRESS BAR ─────────────────────────────────────────────
+function updateProgress(){
+  const fields=[gv('fName'),gv('fOrg'),gv('fEnd')];
+  const filled=fields.filter(v=>v.length>0).length;
+  const pct=Math.round((filled/fields.length)*100);
+  ge('progressFill').style.width=pct+'%';
+}
 
-// ── Theme ──────────────────────────────────────────────────────
-ge('themeBtn').onclick=()=>{
-  const d=document.documentElement,dark=d.dataset.theme==='dark';
-  d.dataset.theme=dark?'light':'dark';ge('themeBtn').textContent=dark?'🌙':'☀️';
-};
-
-// ── Dynamic fields ─────────────────────────────────────────────
+// ── DYNAMIC FIELDS ────────────────────────────────────────────
 const DYNCFG={
   internship:[
     {id:'fRole',label:'Internship Role',ph:'e.g. Software Development Intern',gen:'genRoleField()'},
@@ -582,6 +1035,11 @@ const DYNCFG={
     {id:'fCourse',label:'Course Name',ph:'e.g. Full Stack Web Development',gen:'genCourseField()'},
     {id:'fGrade',label:'Grade / Score (optional)',ph:'e.g. A+ | 94%'},
     {id:'fHours',label:'Duration (optional)',ph:'e.g. 120 hours'},
+  ],
+  participation:[
+    {id:'fEvent',label:'Event / Programme Name',ph:'e.g. National Hackathon 2025',gen:'genEventField()'},
+    {id:'fRole',label:'Role / Category (optional)',ph:'e.g. Participant, Finalist, Judge'},
+    {id:'fPerf',label:'Achievement (optional)',ph:'e.g. secured 2nd place among 500 teams',ta:true},
   ],
   offer:[
     {id:'fRole',label:'Offered Position',ph:'e.g. Associate Product Manager',gen:'genRoleField()'},
@@ -600,15 +1058,16 @@ function renderDyn(){
   }).join('');
 }
 
-// ── Logo ────────────────────────────────────────────────────────
+// ── LOGO ─────────────────────────────────────────────────────
 function handleLogo(inp){
   const f=inp.files[0];if(!f)return;
+  if(f.size>2*1024*1024){showToast('Logo file too large (max 2MB)','error');return;}
   const r=new FileReader();
-  r.onload=e=>{logoDataUrl=e.target.result;liveUpdate();};
+  r.onload=e=>{logoDataUrl=e.target.result;liveUpdate();showToast('Logo uploaded ✓','success');};
   r.readAsDataURL(f);
 }
 
-// ── Build data obj ─────────────────────────────────────────────
+// ── DATA OBJECT ───────────────────────────────────────────────
 function D(){
   return {
     name:gv('fName')||'Recipient Name',
@@ -617,6 +1076,7 @@ function D(){
     dept:gv('fDept')||'',
     perf:gv('fPerf')||'with dedication and enthusiasm',
     course:gv('fCourse')||'',
+    event:gv('fEvent')||'',
     grade:gv('fGrade')||'',
     hours:gv('fHours')||'',
     salary:gv('fSalary')||'',
@@ -632,177 +1092,43 @@ function D(){
   };
 }
 
-// ══════════════════════════════════════════════════════════════
-//   CERTIFICATE HTML BUILDERS
-// ══════════════════════════════════════════════════════════════
+// ── CERT TYPE META ─────────────────────────────────────────────
+const CERT_TYPES={internship:'INTERNSHIP CERTIFICATE',job:'EXPERIENCE CERTIFICATE',course:'CERTIFICATE OF COMPLETION',participation:'CERTIFICATE OF PARTICIPATION',offer:'OFFER LETTER'};
+const CERT_ICONS={internship:'🏢',job:'💼',course:'📚',participation:'🏆',offer:'📄'};
 
-const CERT_TYPES={
-  internship:'INTERNSHIP CERTIFICATE',
-  job:'EXPERIENCE CERTIFICATE',
-  course:'CERTIFICATE OF COMPLETION',
-  offer:'OFFER LETTER'
-};
-const CERT_ICONS={internship:'🏢',job:'💼',course:'📚',offer:'📄'};
-
-// Corner SVG ornament
-const cornerSVG=`<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M4 4 L4 24" stroke="#b8922e" stroke-width="2" stroke-linecap="round"/>
-  <path d="M4 4 L24 4" stroke="#b8922e" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="4" cy="4" r="3" fill="#b8922e"/>
-  <path d="M4 14 L14 4" stroke="rgba(184,146,46,0.3)" stroke-width="1"/>
-  <circle cx="14" cy="4" r="1.5" fill="rgba(184,146,46,0.5)"/>
-  <circle cx="4" cy="14" r="1.5" fill="rgba(184,146,46,0.5)"/>
-</svg>`;
-
-const emeraldCornerSVG=`<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M6 6 L6 28" stroke="#2d8a52" stroke-width="2" stroke-linecap="round"/>
-  <path d="M6 6 L28 6" stroke="#2d8a52" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="6" cy="6" r="3" fill="#2d8a52"/>
-  <path d="M6 18 Q12 12 18 6" stroke="rgba(76,175,120,0.3)" stroke-width="1" fill="none"/>
-  <circle cx="18" cy="6" r="2" fill="rgba(76,175,120,0.4)"/>
-  <circle cx="6" cy="18" r="2" fill="rgba(76,175,120,0.4)"/>
-</svg>`;
-
-const parchmentCornerSVG=`<svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M4 4 L4 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M4 4 L26 4" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M4 4 L4 14" stroke="#8b6010" stroke-width="1" stroke-linecap="round"/>
-  <path d="M4 4 L14 4" stroke="#8b6010" stroke-width="1" stroke-linecap="round"/>
-  <circle cx="4" cy="4" r="3.5" fill="#8b6010"/>
-  <path d="M14 4 Q10 8 6 12" stroke="rgba(139,96,16,0.35)" stroke-width="1" fill="none"/>
-</svg>`;
+// ── SVG ORNAMENTS ─────────────────────────────────────────────
+const cornerSVG=`<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4 L4 24" stroke="#b8922e" stroke-width="2" stroke-linecap="round"/><path d="M4 4 L24 4" stroke="#b8922e" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="4" r="3" fill="#b8922e"/><path d="M4 14 L14 4" stroke="rgba(184,146,46,0.3)" stroke-width="1"/><circle cx="14" cy="4" r="1.5" fill="rgba(184,146,46,0.5)"/><circle cx="4" cy="14" r="1.5" fill="rgba(184,146,46,0.5)"/></svg>`;
+const emeraldCornerSVG=`<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6 L6 28" stroke="#2d8a52" stroke-width="2" stroke-linecap="round"/><path d="M6 6 L28 6" stroke="#2d8a52" stroke-width="2" stroke-linecap="round"/><circle cx="6" cy="6" r="3" fill="#2d8a52"/><path d="M6 18 Q12 12 18 6" stroke="rgba(76,175,120,0.3)" stroke-width="1" fill="none"/><circle cx="18" cy="6" r="2" fill="rgba(76,175,120,0.4)"/><circle cx="6" cy="18" r="2" fill="rgba(76,175,120,0.4)"/></svg>`;
 
 function sigBlock(n,t,cls){
-  return `<div class="${cls}-sig">
-    <div class="${cls}-sig-name">${n||'Authorised Signatory'}</div>
-    <div class="${cls}-sig-line"></div>
-    <div class="${cls}-sig-label">${n||'Authorised Signatory'}</div>
-    <div class="${cls}-sig-title">${t||''}</div>
-  </div>`;
+  return `<div class="${cls}-sig"><div class="${cls}-sig-name">${n||'Authorised Signatory'}</div><div class="${cls}-sig-line"></div><div class="${cls}-sig-label">${n||'Authorised Signatory'}</div><div class="${cls}-sig-title">${t||''}</div></div>`;
+}
+
+// ── CERTIFICATE BUILDERS ───────────────────────────────────────
+function buildMidContent(d,certType){
+  const period=d.startDate&&d.endDate?`${d.startDate} — ${d.endDate}`:(d.endDate||'');
+  if(certType==='internship') return `<div class="r-detail1">has successfully completed an <span class="r-highlight">Internship</span> at<br>${d.org}</div>${d.role?`<div class="r-detail1" style="font-size:13px;color:rgba(201,168,76,.7)">as <span class="r-highlight">${d.role}</span>${d.dept?' — '+d.dept:''}</div>`:''}${period?`<div class="r-dates">${period}</div>`:''}`;
+  if(certType==='job') return `<div class="r-detail1">was employed with distinction at<br>${d.org}</div>${d.role?`<div class="r-detail1" style="font-size:13px;color:rgba(201,168,76,.7)">as <span class="r-highlight">${d.role}</span>${d.dept?' — '+d.dept:''}</div>`:''}${period?`<div class="r-dates">${period}</div>`:''}`;
+  if(certType==='course') return `<div class="r-detail1">has successfully completed the course</div>${d.course?`<div class="r-highlight" style="font-size:18px">"${d.course}"</div>`:''}${d.grade?`<div class="r-dates">Grade: ${d.grade}${d.hours?' · '+d.hours:''}</div>`:''}${d.endDate?`<div class="r-dates">Completed on ${d.endDate}</div>`:''}`;
+  if(certType==='participation') return `<div class="r-detail1">has actively participated in</div>${d.event?`<div class="r-highlight" style="font-size:18px">"${d.event}"</div>`:''}${d.role?`<div class="r-detail1" style="font-size:13px;color:rgba(201,168,76,.7)">as <span class="r-highlight">${d.role}</span></div>`:''}${d.perf&&gv('fPerf')?`<div class="r-dates">${d.perf}</div>`:''}${d.endDate?`<div class="r-dates">Held on ${d.endDate}</div>`:''}`;
+  return `<div class="r-detail1">is hereby offered the position of</div>${d.role?`<div class="r-highlight" style="font-size:18px">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}${d.salary?`<div class="r-dates">CTC: ${d.salary}</div>`:''}${d.joinDate?`<div class="r-dates">Date of Joining: ${d.joinDate}</div>`:''}`;
 }
 
 function buildRoyal(d){
-  const period=d.startDate&&d.endDate?`${d.startDate} — ${d.endDate}`:(d.endDate||'');
-  let midContent='';
-  if(certType==='internship'){
-    midContent=`<div class="r-detail1">has successfully completed an <span class="r-highlight">Internship</span> at<br>${d.org}</div>
-      ${d.role?`<div class="r-detail1" style="font-size:13px;color:rgba(201,168,76,.7)">as <span class="r-highlight">${d.role}</span>${d.dept?' — '+d.dept:''}</div>`:''}
-      ${period?`<div class="r-dates">${period}</div>`:''}`;
-  } else if(certType==='job'){
-    midContent=`<div class="r-detail1">was employed with distinction at<br>${d.org}</div>
-      ${d.role?`<div class="r-detail1" style="font-size:13px;color:rgba(201,168,76,.7)">as <span class="r-highlight">${d.role}</span>${d.dept?' — '+d.dept:''}</div>`:''}
-      ${period?`<div class="r-dates">${period}</div>`:''}`;
-  } else if(certType==='course'){
-    midContent=`<div class="r-detail1">has successfully completed the course</div>
-      ${d.course?`<div class="r-highlight" style="font-size:18px">"${d.course}"</div>`:''}
-      ${d.grade?`<div class="r-dates">Grade: ${d.grade}${d.hours?' · '+d.hours:''}</div>`:''}
-      <div class="r-dates">Completed on ${d.endDate}</div>`;
-  } else {
-    midContent=`<div class="r-detail1">is hereby offered the position of</div>
-      ${d.role?`<div class="r-highlight" style="font-size:18px">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
-      ${d.salary?`<div class="r-dates">CTC: ${d.salary}</div>`:''}
-      ${d.joinDate?`<div class="r-dates">Date of Joining: ${d.joinDate}</div>`:''}`;
-  }
-
   const hasSig2=d.s2n.trim()!=='';
-  return `<div class="cert-root cert-royal">
-    <div class="r-bg-glow"></div>
-    <div class="r-outerBorder"></div>
-    <div class="r-innerBorder"></div>
-    <div class="r-corner tl">${cornerSVG}</div>
-    <div class="r-corner tr">${cornerSVG}</div>
-    <div class="r-corner bl">${cornerSVG}</div>
-    <div class="r-corner br">${cornerSVG}</div>
-    <div class="r-content">
-      <div class="r-top">
-        ${d.logo?`<div class="r-seal"><img src="${d.logo}" style="width:36px;height:36px;border-radius:50%;object-fit:cover"/></div>`:`<div class="r-seal"><span style="font-size:22px">${CERT_ICONS[certType]}</span></div>`}
-        <div class="r-org">${d.org}</div>
-        <div class="r-goldline"></div>
-        <div class="r-certtype">${CERT_TYPES[certType]||'Certificate'}</div>
-      </div>
-      <div class="r-mid">
-        <div class="r-presenting">This certificate is proudly presented to</div>
-        <div class="r-name">${d.name}</div>
-        <div class="r-nameline"></div>
-        ${midContent}
-      </div>
-      <div class="r-bottom">
-        ${sigBlock(d.s1n,d.s1t,'r')}
-        <div class="r-center-seal">
-          <div class="r-seal-circle">🏅</div>
-        </div>
-        ${hasSig2?sigBlock(d.s2n,d.s2t,'r'):`<div style="flex:1"></div>`}
-      </div>
-    </div>
-    <div class="r-certid">ID: ${d.cid}</div>
-    <div class="r-brand">CertifyPro™</div>
-  </div>`;
+  return `<div class="cert-root cert-royal"><div class="r-bg-glow"></div><div class="r-outerBorder"></div><div class="r-innerBorder"></div><div class="r-corner tl">${cornerSVG}</div><div class="r-corner tr">${cornerSVG}</div><div class="r-corner bl">${cornerSVG}</div><div class="r-corner br">${cornerSVG}</div><div class="r-content"><div class="r-top">${d.logo?`<div class="r-seal"><img src="${d.logo}" style="width:36px;height:36px;border-radius:50%;object-fit:cover"/></div>`:`<div class="r-seal"><span style="font-size:22px">${CERT_ICONS[certType]}</span></div>`}<div class="r-org">${d.org}</div><div class="r-goldline"></div><div class="r-certtype">${CERT_TYPES[certType]||'Certificate'}</div></div><div class="r-mid"><div class="r-presenting">This certificate is proudly presented to</div><div class="r-name">${d.name}</div><div class="r-nameline"></div>${buildMidContent(d,certType)}</div><div class="r-bottom">${sigBlock(d.s1n,d.s1t,'r')}<div class="r-center-seal"><div class="r-seal-circle">🏅</div></div>${hasSig2?sigBlock(d.s2n,d.s2t,'r'):`<div style="flex:1"></div>`}</div></div><div class="r-certid">ID: ${d.cid}</div><div class="r-brand">CertifyPro™</div></div>`;
 }
 
 function buildWave(d){
   const period=d.startDate&&d.endDate?`${d.startDate} to ${d.endDate}`:(d.endDate||'');
   let bodyContent='';
-  if(certType==='internship'){
-    bodyContent=`<span>In recognition of their contribution to <b>${d.org}</b> as</span>
-      ${d.role?`<div class="w-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
-      <span>For the period of</span>
-      ${period?`<div class="w-period">${period}</div>`:''}`;
-  } else if(certType==='job'){
-    bodyContent=`<span>was employed at <b>${d.org}</b> as</span>
-      ${d.role?`<div class="w-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
-      ${period?`<div class="w-period">${period}</div>`:''}`;
-  } else if(certType==='course'){
-    bodyContent=`<span>For successfully completing the course</span>
-      ${d.course?`<div class="w-role">"${d.course}"</div>`:''}
-      ${d.grade?`<div class="w-period">Grade: ${d.grade}${d.hours?' · '+d.hours:''}</div>`:''}
-      <div class="w-period">Completed on ${d.endDate}</div>`;
-  } else {
-    bodyContent=`<span>is offered the position of</span>
-      ${d.role?`<div class="w-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
-      ${d.salary?`<div class="w-period">CTC: ${d.salary}</div>`:''}
-      ${d.joinDate?`<div class="w-period">Joining: ${d.joinDate}</div>`:''}`;
-  }
+  if(certType==='internship') bodyContent=`<span>In recognition of their contribution to <b>${d.org}</b> as</span>${d.role?`<div class="w-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}${period?`<div class="w-period">${period}</div>`:''}`;
+  else if(certType==='job') bodyContent=`<span>was employed at <b>${d.org}</b> as</span>${d.role?`<div class="w-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}${period?`<div class="w-period">${period}</div>`:''}`;
+  else if(certType==='course') bodyContent=`<span>For successfully completing the course</span>${d.course?`<div class="w-role">"${d.course}"</div>`:''}${d.grade?`<div class="w-period">Grade: ${d.grade}${d.hours?' · '+d.hours:''}</div>`:''}${d.endDate?`<div class="w-period">Completed on ${d.endDate}</div>`:''}`;
+  else if(certType==='participation') bodyContent=`<span>For participating in</span>${d.event?`<div class="w-role">"${d.event}"</div>`:''}${d.role?`<div class="w-period">${d.role}</div>`:''}${d.endDate?`<div class="w-period">Held on ${d.endDate}</div>`:''}`;
+  else bodyContent=`<span>is offered the position of</span>${d.role?`<div class="w-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}${d.salary?`<div class="w-period">CTC: ${d.salary}</div>`:''}${d.joinDate?`<div class="w-period">Joining: ${d.joinDate}</div>`:''}`;
   const hasSig2=d.s2n.trim()!=='';
-  return `<div class="cert-root cert-wave">
-    <svg class="w-wave-bl" viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 200 Q60 120 140 160 T260 200 Z" fill="#e8c870" opacity="0.9"/>
-      <path d="M0 200 Q80 100 160 150 T260 200 Z" fill="#c9a84c" opacity="0.7"/>
-      <path d="M0 200 Q40 140 100 170 T200 200 Z" fill="#c0392b" opacity="0.85"/>
-      <path d="M0 200 Q30 160 70 180 T140 200 Z" fill="#922b21"/>
-    </svg>
-    <svg class="w-wave-tr" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
-      <path d="M220 0 Q160 80 80 40 T0 0 Z" fill="#e8c870" opacity="0.9"/>
-      <path d="M220 0 Q140 100 60 50 T0 0 Z" fill="#c9a84c" opacity="0.6"/>
-      <path d="M220 0 Q180 60 120 30 T60 0 Z" fill="#c0392b" opacity="0.7"/>
-      <path d="M220 0 Q190 40 160 20 T100 0 Z" fill="#922b21"/>
-    </svg>
-    <div class="w-border"></div>
-    <div class="w-content">
-      <div class="w-top">
-        ${d.logo?`<div class="w-logo-ring"><img src="${d.logo}" style="width:34px;height:34px;border-radius:50%;object-fit:cover"/></div>`:`<div class="w-logo-ring">${CERT_ICONS[certType]}</div>`}
-        <div class="w-org">${d.org}</div>
-        <div class="w-separator" style="width:300px">
-          <div class="w-sep-line"></div><div class="w-sep-diamond"></div>
-          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:#8a2010;white-space:nowrap">${CERT_TYPES[certType]}</div>
-          <div class="w-sep-diamond"></div><div class="w-sep-line"></div>
-        </div>
-      </div>
-      <div class="w-mid">
-        <div class="w-presenting">We award this certificate to</div>
-        <div class="w-name">${d.name}</div>
-        <div class="w-nameline"><div class="w-nameline-inner"></div></div>
-        <div class="w-body" style="display:flex;flex-direction:column;align-items:center;gap:3px">
-          ${bodyContent}
-        </div>
-      </div>
-      <div class="w-bottom">
-        ${sigBlock(d.s1n,d.s1t,'w')}
-        <div class="w-seal">${hasSig2?'🌟':'🏅'}</div>
-        ${hasSig2?sigBlock(d.s2n,d.s2t,'w'):`<div></div>`}
-      </div>
-    </div>
-    <div class="w-certid">ID: ${d.cid} · CertifyPro</div>
-  </div>`;
+  return `<div class="cert-root cert-wave"><svg class="w-wave-bl" viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg"><path d="M0 200 Q60 120 140 160 T260 200 Z" fill="#e8c870" opacity="0.9"/><path d="M0 200 Q80 100 160 150 T260 200 Z" fill="#c9a84c" opacity="0.7"/><path d="M0 200 Q40 140 100 170 T200 200 Z" fill="#c0392b" opacity="0.85"/><path d="M0 200 Q30 160 70 180 T140 200 Z" fill="#922b21"/></svg><svg class="w-wave-tr" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg"><path d="M220 0 Q160 80 80 40 T0 0 Z" fill="#e8c870" opacity="0.9"/><path d="M220 0 Q140 100 60 50 T0 0 Z" fill="#c9a84c" opacity="0.6"/><path d="M220 0 Q180 60 120 30 T60 0 Z" fill="#c0392b" opacity="0.7"/><path d="M220 0 Q190 40 160 20 T100 0 Z" fill="#922b21"/></svg><div class="w-border"></div><div class="w-content"><div class="w-top">${d.logo?`<div class="w-logo-ring"><img src="${d.logo}" style="width:34px;height:34px;border-radius:50%;object-fit:cover"/></div>`:`<div class="w-logo-ring">${CERT_ICONS[certType]}</div>`}<div class="w-org">${d.org}</div><div class="w-separator" style="width:300px"><div class="w-sep-line"></div><div class="w-sep-diamond"></div><div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:#8a2010;white-space:nowrap">${CERT_TYPES[certType]}</div><div class="w-sep-diamond"></div><div class="w-sep-line"></div></div></div><div class="w-mid"><div class="w-presenting">We award this certificate to</div><div class="w-name">${d.name}</div><div class="w-nameline"><div class="w-nameline-inner"></div></div><div class="w-body" style="display:flex;flex-direction:column;align-items:center;gap:3px">${bodyContent}</div></div><div class="w-bottom">${sigBlock(d.s1n,d.s1t,'w')}<div class="w-seal">🌟</div>${hasSig2?sigBlock(d.s2n,d.s2t,'w'):`<div></div>`}</div></div><div class="w-certid">ID: ${d.cid} · CertifyPro</div></div>`;
 }
 
 function buildNavy(d){
@@ -810,406 +1136,193 @@ function buildNavy(d){
   let detailRows='';
   if(certType==='internship'||certType==='job'){
     const verb=certType==='internship'?'has completed an internship':'was employed';
-    detailRows=`<div class="n-certify-text">${verb} as</div>
-      ${d.role?`<div class="n-role-pill">${d.role}${d.dept?' &nbsp;·&nbsp; '+d.dept:''}</div>`:''}
-      ${period?`<div class="n-period">📅 Period: ${period}</div>`:''}
-      ${d.perf?`<div class="n-period">💬 ${d.perf}</div>`:''}`;
+    detailRows=`<div class="n-certify-text">${verb} as</div>${d.role?`<div class="n-role-pill">${d.role}${d.dept?' &nbsp;·&nbsp; '+d.dept:''}</div>`:''}${period?`<div class="n-period">📅 Period: ${period}</div>`:''}`;
   } else if(certType==='course'){
-    detailRows=`<div class="n-certify-text">has successfully completed</div>
-      ${d.course?`<div class="n-role-pill">${d.course}</div>`:''}
-      ${d.grade?`<div class="n-period">🎯 Grade: ${d.grade}${d.hours?' &nbsp;·&nbsp; '+d.hours:''}</div>`:''}
-      <div class="n-period">✅ Completed: ${d.endDate}</div>`;
+    detailRows=`<div class="n-certify-text">has successfully completed</div>${d.course?`<div class="n-role-pill">${d.course}</div>`:''}${d.grade?`<div class="n-period">🎯 Grade: ${d.grade}${d.hours?' &nbsp;·&nbsp; '+d.hours:''}</div>`:''}${d.endDate?`<div class="n-period">✅ Completed: ${d.endDate}</div>`:''}`;
+  } else if(certType==='participation'){
+    detailRows=`<div class="n-certify-text">has participated in</div>${d.event?`<div class="n-role-pill">${d.event}</div>`:''}${d.role?`<div class="n-period">🏷️ ${d.role}</div>`:''}${d.endDate?`<div class="n-period">📅 Held on: ${d.endDate}</div>`:''}`;
   } else {
-    detailRows=`<div class="n-certify-text">is hereby offered the position of</div>
-      ${d.role?`<div class="n-role-pill">${d.role}${d.dept?' &nbsp;·&nbsp; '+d.dept:''}</div>`:''}
-      ${d.salary?`<div class="n-period">💰 CTC: ${d.salary}</div>`:''}
-      ${d.joinDate?`<div class="n-period">📅 Date of Joining: ${d.joinDate}</div>`:''}`;
+    detailRows=`<div class="n-certify-text">is hereby offered the position of</div>${d.role?`<div class="n-role-pill">${d.role}${d.dept?' &nbsp;·&nbsp; '+d.dept:''}</div>`:''}${d.salary?`<div class="n-period">💰 CTC: ${d.salary}</div>`:''}${d.joinDate?`<div class="n-period">📅 Joining: ${d.joinDate}</div>`:''}`;
   }
   const hasSig2=d.s2n.trim()!=='';
-  return `<div class="cert-root cert-navy">
-    <div class="n-header">
-      <div class="n-header-pattern">
-        <div class="n-header-circle" style="width:160px;height:160px;top:-60px;right:-60px"></div>
-        <div class="n-header-circle" style="width:100px;height:100px;top:10px;right:30px"></div>
-        <div class="n-header-circle" style="width:60px;height:60px;top:40px;right:80px"></div>
-      </div>
-      <div class="n-logo-area">
-        ${d.logo?`<div class="n-logo-circle"><img src="${d.logo}" style="width:44px;height:44px;border-radius:50%;object-fit:cover"/></div>`:`<div class="n-logo-circle">${CERT_ICONS[certType]}</div>`}
-        <div class="n-org-info">
-          <div class="n-org-name">${d.org}</div>
-          <div class="n-org-sub">Excellence · Integrity · Growth</div>
-        </div>
-      </div>
-      <div class="n-type-badge">
-        <div class="n-type-label">${CERT_TYPES[certType]}</div>
-        <div class="n-type-date">${d.endDate}</div>
-      </div>
-    </div>
-    <div class="n-header-accent"></div>
-    <div class="n-body">
-      <div class="n-ref">Ref No: ${d.cid}</div>
-      <div class="n-certify-text">This is to certify that</div>
-      <div class="n-name">${d.name}</div>
-      <div class="n-accent-bar"></div>
-      ${detailRows}
-      <div class="n-footer">
-        <div style="display:flex;gap:40px;flex:1">
-          <div class="n-sig-block">
-            <div class="n-sig-name">${d.s1n||'Authorised Signatory'}</div>
-            <div class="n-sig-line"></div>
-            <div class="n-sig-label">${d.s1n||'Authorised Signatory'}</div>
-            <div class="n-sig-title">${d.s1t||''}</div>
-          </div>
-          ${hasSig2?`<div class="n-sig-block">
-            <div class="n-sig-name">${d.s2n}</div>
-            <div class="n-sig-line"></div>
-            <div class="n-sig-label">${d.s2n}</div>
-            <div class="n-sig-title">${d.s2t}</div>
-          </div>`:''}
-        </div>
-        <div class="n-stamp">🏢</div>
-      </div>
-    </div>
-    <div class="n-certid">ID: ${d.cid} · CertifyPro</div>
-  </div>`;
+  return `<div class="cert-root cert-navy"><div class="n-header"><div class="n-header-pattern"><div class="n-header-circle" style="width:160px;height:160px;top:-60px;right:-60px"></div><div class="n-header-circle" style="width:100px;height:100px;top:10px;right:30px"></div><div class="n-header-circle" style="width:60px;height:60px;top:40px;right:80px"></div></div><div class="n-logo-area">${d.logo?`<div class="n-logo-circle"><img src="${d.logo}" style="width:44px;height:44px;border-radius:50%;object-fit:cover"/></div>`:`<div class="n-logo-circle">${CERT_ICONS[certType]}</div>`}<div class="n-org-info"><div class="n-org-name">${d.org}</div><div class="n-org-sub">Excellence · Integrity · Growth</div></div></div><div class="n-type-badge"><div class="n-type-label">${CERT_TYPES[certType]}</div><div class="n-type-date">${d.endDate}</div></div></div><div class="n-header-accent"></div><div class="n-body"><div class="n-ref">Ref No: ${d.cid}</div><div class="n-certify-text">This is to certify that</div><div class="n-name">${d.name}</div><div class="n-accent-bar"></div>${detailRows}<div class="n-footer"><div style="display:flex;gap:40px;flex:1"><div class="n-sig-block"><div class="n-sig-name">${d.s1n||'Authorised Signatory'}</div><div class="n-sig-line"></div><div class="n-sig-label">${d.s1n||'Authorised Signatory'}</div><div class="n-sig-title">${d.s1t||''}</div></div>${hasSig2?`<div class="n-sig-block"><div class="n-sig-name">${d.s2n}</div><div class="n-sig-line"></div><div class="n-sig-label">${d.s2n}</div><div class="n-sig-title">${d.s2t}</div></div>`:''}</div><div class="n-stamp">🏢</div></div></div><div class="n-certid">ID: ${d.cid} · CertifyPro</div></div>`;
 }
 
 function buildEmerald(d){
   const period=d.startDate&&d.endDate?`${d.startDate} — ${d.endDate}`:(d.endDate||'');
   let midContent='';
-  if(certType==='internship'){
-    midContent=`<div class="e-detail">for completing an internship at <b style="color:#4caf7c">${d.org}</b></div>
-      ${d.role?`<div class="e-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
-      ${period?`<div class="e-period">${period}</div>`:''}`;
-  } else if(certType==='job'){
-    midContent=`<div class="e-detail">for distinguished service at <b style="color:#4caf7c">${d.org}</b></div>
-      ${d.role?`<div class="e-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
-      ${period?`<div class="e-period">${period}</div>`:''}`;
-  } else if(certType==='course'){
-    midContent=`<div class="e-detail">for successfully completing the course</div>
-      ${d.course?`<div class="e-role">"${d.course}"</div>`:''}
-      ${d.grade?`<div class="e-period">Grade: ${d.grade}${d.hours?' · '+d.hours:''}</div>`:''}
-      <div class="e-period">Completed on ${d.endDate}</div>`;
-  } else {
-    midContent=`<div class="e-detail">for accepting the offer of</div>
-      ${d.role?`<div class="e-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
-      ${d.salary?`<div class="e-period">CTC: ${d.salary}</div>`:''}
-      ${d.joinDate?`<div class="e-period">Joining: ${d.joinDate}</div>`:''}`;
-  }
+  if(certType==='internship') midContent=`<div class="e-detail">for completing an internship at <b style="color:#4caf7c">${d.org}</b></div>${d.role?`<div class="e-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}${period?`<div class="e-period">${period}</div>`:''}`;
+  else if(certType==='job') midContent=`<div class="e-detail">for distinguished service at <b style="color:#4caf7c">${d.org}</b></div>${d.role?`<div class="e-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}${period?`<div class="e-period">${period}</div>`:''}`;
+  else if(certType==='course') midContent=`<div class="e-detail">for successfully completing the course</div>${d.course?`<div class="e-role">"${d.course}"</div>`:''}${d.grade?`<div class="e-period">Grade: ${d.grade}${d.hours?' · '+d.hours:''}</div>`:''}${d.endDate?`<div class="e-period">Completed on ${d.endDate}</div>`:''}`;
+  else if(certType==='participation') midContent=`<div class="e-detail">for participating in</div>${d.event?`<div class="e-role">"${d.event}"</div>`:''}${d.role?`<div class="e-period">${d.role}</div>`:''}${d.endDate?`<div class="e-period">Held on ${d.endDate}</div>`:''}`;
+  else midContent=`<div class="e-detail">for accepting the offer of</div>${d.role?`<div class="e-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}${d.salary?`<div class="e-period">CTC: ${d.salary}</div>`:''}${d.joinDate?`<div class="e-period">Joining: ${d.joinDate}</div>`:''}`;
   const hasSig2=d.s2n.trim()!=='';
-  return `<div class="cert-root cert-emerald">
-    <div class="e-glow"></div>
-    <div class="e-outer"></div>
-    <div class="e-inner"></div>
-    <div class="e-corner-tl">${emeraldCornerSVG}</div>
-    <div class="e-corner-tr">${emeraldCornerSVG}</div>
-    <div class="e-corner-bl">${emeraldCornerSVG}</div>
-    <div class="e-corner-br">${emeraldCornerSVG}</div>
-    <div class="e-content">
-      <div class="e-top">
-        ${d.logo?`<div class="e-icon"><img src="${d.logo}" style="width:34px;height:34px;border-radius:50%;object-fit:cover"/></div>`:`<div class="e-icon">${CERT_ICONS[certType]}</div>`}
-        <div class="e-org">${d.org}</div>
-        <div class="e-line"></div>
-        <div class="e-certtype">${CERT_TYPES[certType]}</div>
-      </div>
-      <div class="e-mid">
-        <div class="e-awarded">This certificate is proudly awarded to</div>
-        <div class="e-name">${d.name}</div>
-        <div class="e-nameline"></div>
-        ${midContent}
-      </div>
-      <div class="e-bottom">
-        ${sigBlock(d.s1n,d.s1t,'e')}
-        <div class="e-center"><div class="e-seal">🌿</div></div>
-        ${hasSig2?sigBlock(d.s2n,d.s2t,'e'):`<div></div>`}
-      </div>
-    </div>
-    <div class="e-certid">ID: ${d.cid}</div>
-  </div>`;
+  return `<div class="cert-root cert-emerald"><div class="e-glow"></div><div class="e-outer"></div><div class="e-inner"></div><div class="e-corner-tl">${emeraldCornerSVG}</div><div class="e-corner-tr">${emeraldCornerSVG}</div><div class="e-corner-bl">${emeraldCornerSVG}</div><div class="e-corner-br">${emeraldCornerSVG}</div><div class="e-content"><div class="e-top">${d.logo?`<div class="e-icon"><img src="${d.logo}" style="width:34px;height:34px;border-radius:50%;object-fit:cover"/></div>`:`<div class="e-icon">${CERT_ICONS[certType]}</div>`}<div class="e-org">${d.org}</div><div class="e-line"></div><div class="e-certtype">${CERT_TYPES[certType]}</div></div><div class="e-mid"><div class="e-awarded">This certificate is proudly awarded to</div><div class="e-name">${d.name}</div><div class="e-nameline"></div>${midContent}</div><div class="e-bottom">${sigBlock(d.s1n,d.s1t,'e')}<div class="e-center"><div class="e-seal">🌿</div></div>${hasSig2?sigBlock(d.s2n,d.s2t,'e'):`<div></div>`}</div></div><div class="e-certid">ID: ${d.cid}</div></div>`;
 }
 
 function buildParchment(d){
   const period=d.startDate&&d.endDate?`${d.startDate} to ${d.endDate}`:(d.endDate||'');
   let midContent='';
-  if(certType==='internship'){
-    midContent=`<div class="p-body">has served with distinction at <b>${d.org}</b></div>
-      ${d.role?`<div class="p-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
-      ${period?`<div class="p-period">${period}</div>`:''}`;
-  } else if(certType==='job'){
-    midContent=`<div class="p-body">was faithfully employed at <b>${d.org}</b></div>
-      ${d.role?`<div class="p-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
-      ${period?`<div class="p-period">${period}</div>`:''}`;
-  } else if(certType==='course'){
-    midContent=`<div class="p-body">hath successfully accomplished the course</div>
-      ${d.course?`<div class="p-role">"${d.course}"</div>`:''}
-      ${d.grade?`<div class="p-period">Grade: ${d.grade}${d.hours?' · '+d.hours:''}</div>`:''}
-      <div class="p-period">Completed on ${d.endDate}</div>`;
-  } else {
-    midContent=`<div class="p-body">is hereby offered employment as</div>
-      ${d.role?`<div class="p-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}
-      ${d.salary?`<div class="p-period">Emoluments: ${d.salary}</div>`:''}
-      ${d.joinDate?`<div class="p-period">Commencement: ${d.joinDate}</div>`:''}`;
-  }
+  if(certType==='internship') midContent=`<div class="p-body">has served with distinction at <b>${d.org}</b></div>${d.role?`<div class="p-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}${period?`<div class="p-period">${period}</div>`:''}`;
+  else if(certType==='job') midContent=`<div class="p-body">was faithfully employed at <b>${d.org}</b></div>${d.role?`<div class="p-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}${period?`<div class="p-period">${period}</div>`:''}`;
+  else if(certType==='course') midContent=`<div class="p-body">hath successfully accomplished the course</div>${d.course?`<div class="p-role">"${d.course}"</div>`:''}${d.grade?`<div class="p-period">Grade: ${d.grade}${d.hours?' · '+d.hours:''}</div>`:''}${d.endDate?`<div class="p-period">Completed on ${d.endDate}</div>`:''}`;
+  else if(certType==='participation') midContent=`<div class="p-body">did participate most honourably in</div>${d.event?`<div class="p-role">"${d.event}"</div>`:''}${d.role?`<div class="p-period">${d.role}</div>`:''}${d.endDate?`<div class="p-period">Held on ${d.endDate}</div>`:''}`;
+  else midContent=`<div class="p-body">is hereby offered employment as</div>${d.role?`<div class="p-role">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}${d.salary?`<div class="p-period">Emoluments: ${d.salary}</div>`:''}${d.joinDate?`<div class="p-period">Commencement: ${d.joinDate}</div>`:''}`;
   const hasSig2=d.s2n.trim()!=='';
-  return `<div class="cert-root cert-parchment">
-    <div class="p-vignette"></div>
-    <div class="p-outer"></div>
-    <div class="p-inner"></div>
-    <svg class="p-corner-svg tl" viewBox="0 0 50 50" fill="none"><path d="M4 4 L4 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><path d="M4 4 L26 4" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><circle cx="4" cy="4" r="3.5" fill="#8b6010"/><path d="M14 4 Q10 8 6 12" stroke="rgba(139,96,16,0.4)" stroke-width="1.5" fill="none"/><circle cx="24" cy="4" r="2" fill="rgba(139,96,16,0.4)"/><circle cx="4" cy="24" r="2" fill="rgba(139,96,16,0.4)"/></svg>
-    <svg class="p-corner-svg tr" viewBox="0 0 50 50" fill="none"><path d="M4 4 L4 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><path d="M4 4 L26 4" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><circle cx="4" cy="4" r="3.5" fill="#8b6010"/><path d="M14 4 Q10 8 6 12" stroke="rgba(139,96,16,0.4)" stroke-width="1.5" fill="none"/><circle cx="24" cy="4" r="2" fill="rgba(139,96,16,0.4)"/><circle cx="4" cy="24" r="2" fill="rgba(139,96,16,0.4)"/></svg>
-    <svg class="p-corner-svg bl" viewBox="0 0 50 50" fill="none"><path d="M4 4 L4 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><path d="M4 4 L26 4" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><circle cx="4" cy="4" r="3.5" fill="#8b6010"/><path d="M14 4 Q10 8 6 12" stroke="rgba(139,96,16,0.4)" stroke-width="1.5" fill="none"/><circle cx="24" cy="4" r="2" fill="rgba(139,96,16,0.4)"/><circle cx="4" cy="24" r="2" fill="rgba(139,96,16,0.4)"/></svg>
-    <svg class="p-corner-svg br" viewBox="0 0 50 50" fill="none"><path d="M4 4 L4 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><path d="M4 4 L26 4" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><circle cx="4" cy="4" r="3.5" fill="#8b6010"/><path d="M14 4 Q10 8 6 12" stroke="rgba(139,96,16,0.4)" stroke-width="1.5" fill="none"/><circle cx="24" cy="4" r="2" fill="rgba(139,96,16,0.4)"/><circle cx="4" cy="24" r="2" fill="rgba(139,96,16,0.4)"/></svg>
-    <div class="p-content">
-      <div class="p-top">
-        ${d.logo?`<div class="p-icon"><img src="${d.logo}" style="width:32px;height:32px;border-radius:50%;object-fit:cover"/></div>`:`<div class="p-icon">${CERT_ICONS[certType]}</div>`}
-        <div class="p-org">${d.org}</div>
-        <div class="p-rule" style="width:100%"><div class="p-rule-line-thick"></div><div class="p-rule-diamond"></div>
-          <div style="font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:#2e1804;letter-spacing:1px;padding:0 10px;white-space:nowrap">${CERT_TYPES[certType]}</div>
-        <div class="p-rule-diamond"></div><div class="p-rule-line-thick"></div></div>
-      </div>
-      <div class="p-mid">
-        <div class="p-certify">This is to certify with honour that</div>
-        <div class="p-name">${d.name}</div>
-        <div class="p-nameline"></div>
-        ${midContent}
-      </div>
-      <div class="p-bottom">
-        ${sigBlock(d.s1n,d.s1t,'p')}
-        <div class="p-center-seal"><div class="p-seal">📜</div></div>
-        ${hasSig2?sigBlock(d.s2n,d.s2t,'p'):`<div></div>`}
-      </div>
-    </div>
-    <div class="p-certid">No. ${d.cid}</div>
-  </div>`;
+  return `<div class="cert-root cert-parchment"><div class="p-vignette"></div><div class="p-outer"></div><div class="p-inner"></div><svg class="p-corner-svg tl" viewBox="0 0 50 50" fill="none"><path d="M4 4 L4 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><path d="M4 4 L26 4" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><circle cx="4" cy="4" r="3.5" fill="#8b6010"/></svg><svg class="p-corner-svg tr" viewBox="0 0 50 50" fill="none"><path d="M4 4 L4 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><path d="M4 4 L26 4" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><circle cx="4" cy="4" r="3.5" fill="#8b6010"/></svg><svg class="p-corner-svg bl" viewBox="0 0 50 50" fill="none"><path d="M4 26 L4 4" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><path d="M4 26 L26 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><circle cx="4" cy="26" r="3.5" fill="#8b6010"/></svg><svg class="p-corner-svg br" viewBox="0 0 50 50" fill="none"><path d="M26 4 L26 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><path d="M4 26 L26 26" stroke="#8b6010" stroke-width="2.5" stroke-linecap="round"/><circle cx="26" cy="26" r="3.5" fill="#8b6010"/></svg><div class="p-content"><div class="p-top">${d.logo?`<div class="p-icon"><img src="${d.logo}" style="width:32px;height:32px;border-radius:50%;object-fit:cover"/></div>`:`<div class="p-icon">${CERT_ICONS[certType]}</div>`}<div class="p-org">${d.org}</div><div class="p-rule"><div class="p-rule-line-thick"></div><div class="p-rule-diamond"></div><div class="p-title">${CERT_TYPES[certType]}</div><div class="p-rule-diamond"></div><div class="p-rule-line-thick"></div></div></div><div class="p-mid"><div class="p-certify">This is to certify that</div><div class="p-name">${d.name}</div><div class="p-nameline"></div>${midContent}</div><div class="p-bottom">${sigBlock(d.s1n,d.s1t,'p')}<div class="p-center-seal"><div class="p-seal">📜</div></div>${hasSig2?sigBlock(d.s2n,d.s2t,'p'):`<div></div>`}</div></div><div class="p-certid">ID: ${d.cid}</div></div>`;
 }
 
 function buildModern(d){
-  const period=d.startDate&&d.endDate?`${d.startDate} → ${d.endDate}`:(d.endDate||'');
-  let details='';
-  if(certType==='internship'||certType==='job'){
-    details=`<div class="m-detail">${certType==='internship'?'has completed an internship':'was employed'} as</div>
-      ${d.role?`<div class="m-role">${d.role}${d.dept?' &nbsp;·&nbsp; '+d.dept:''}</div>`:''}
-      ${period?`<div class="m-sub-detail">📅 ${period}</div>`:''}
-      ${d.perf?`<div class="m-sub-detail">💬 ${d.perf}</div>`:''}`;
-  } else if(certType==='course'){
-    details=`<div class="m-detail">has successfully completed</div>
-      ${d.course?`<div class="m-role">${d.course}</div>`:''}
-      ${d.grade?`<div class="m-sub-detail">🎯 Grade: ${d.grade}${d.hours?' &nbsp;·&nbsp; '+d.hours:''}</div>`:''}
-      <div class="m-sub-detail">✅ ${d.endDate}</div>`;
-  } else {
-    details=`<div class="m-detail">is offered the position of</div>
-      ${d.role?`<div class="m-role">${d.role}${d.dept?' &nbsp;·&nbsp; '+d.dept:''}</div>`:''}
-      ${d.salary?`<div class="m-sub-detail">💰 ${d.salary}</div>`:''}
-      ${d.joinDate?`<div class="m-sub-detail">📅 Joining: ${d.joinDate}</div>`:''}`;
-  }
+  const period=d.startDate&&d.endDate?`${d.startDate} to ${d.endDate}`:(d.endDate||'');
+  let midDetail='';
+  if(certType==='internship') midDetail=`<div class="m-detail">completed an internship in <b>${d.org}</b></div>${d.role?`<div class="m-role">${d.role}${d.dept?' · '+d.dept:''}</div>`:''}${period?`<div class="m-sub-detail">${period}</div>`:''}`;
+  else if(certType==='job') midDetail=`<div class="m-detail">was employed at <b>${d.org}</b></div>${d.role?`<div class="m-role">${d.role}${d.dept?' · '+d.dept:''}</div>`:''}${period?`<div class="m-sub-detail">${period}</div>`:''}`;
+  else if(certType==='course') midDetail=`<div class="m-detail">successfully completed the course</div>${d.course?`<div class="m-role">${d.course}</div>`:''}${d.grade?`<div class="m-sub-detail">Grade: ${d.grade}${d.hours?' · '+d.hours:''}</div>`:''}${d.endDate?`<div class="m-sub-detail">Completed: ${d.endDate}</div>`:''}`;
+  else if(certType==='participation') midDetail=`<div class="m-detail">participated in</div>${d.event?`<div class="m-role">${d.event}</div>`:''}${d.role?`<div class="m-sub-detail">${d.role}</div>`:''}${d.endDate?`<div class="m-sub-detail">Held on: ${d.endDate}</div>`:''}`;
+  else midDetail=`<div class="m-detail">has been offered the position of</div>${d.role?`<div class="m-role">${d.role}${d.dept?' · '+d.dept:''}</div>`:''}${d.salary?`<div class="m-sub-detail">CTC: ${d.salary}</div>`:''}${d.joinDate?`<div class="m-sub-detail">Joining: ${d.joinDate}</div>`:''}`;
   const hasSig2=d.s2n.trim()!=='';
-  const accentW=Math.min(d.name.length*18,320);
-  return `<div class="cert-root cert-modern">
-    <div class="m-sidebar"></div>
-    <div class="m-top-tri"></div>
-    <div class="m-bot-tri"></div>
-    <div class="m-content">
-      <div class="m-top">
-        <div class="m-org-block">
-          ${d.logo?`<img src="${d.logo}" style="width:36px;height:36px;border-radius:6px;object-fit:cover;margin-bottom:4px"/>`:''}
-          <div class="m-org-name">${d.org}</div>
-          <div class="m-org-line"></div>
-          <div class="m-org-sub">${CERT_TYPES[certType]}</div>
-        </div>
-        <div class="m-type-block">
-          <div class="m-type-label">Issue Date</div>
-          <div class="m-type-date">${d.endDate}</div>
-          <div class="m-type-label" style="margin-top:6px">Ref ID</div>
-          <div class="m-type-date">${d.cid}</div>
-        </div>
-      </div>
-      <div class="m-mid">
-        <div class="m-certify">This is to certify that</div>
-        <div class="m-name">${d.name}</div>
-        <div class="m-accent" style="width:${accentW}px"></div>
-        ${details}
-      </div>
-      <div class="m-bottom">
-        <div style="display:flex;gap:40px">
-          <div class="m-sig-block">
-            <div class="m-sig-accent"></div>
-            <div class="m-sig-name">${d.s1n||'Authorised Signatory'}</div>
-            <div class="m-sig-line"></div>
-            <div class="m-sig-label">${d.s1n||'Authorised Signatory'}</div>
-            <div class="m-sig-title">${d.s1t||''}</div>
-          </div>
-          ${hasSig2?`<div class="m-sig-block">
-            <div class="m-sig-accent"></div>
-            <div class="m-sig-name">${d.s2n}</div>
-            <div class="m-sig-line"></div>
-            <div class="m-sig-label">${d.s2n}</div>
-            <div class="m-sig-title">${d.s2t}</div>
-          </div>`:''}
-        </div>
-        <div class="m-stamp">⭐</div>
-      </div>
-    </div>
-    <div class="m-certid">CertifyPro™</div>
-  </div>`;
+  return `<div class="cert-root cert-modern"><div class="m-sidebar"></div><div class="m-top-tri"></div><div class="m-bot-tri"></div><div class="m-content"><div class="m-top"><div class="m-org-block">${d.logo?`<img src="${d.logo}" style="height:40px;max-width:120px;object-fit:contain;margin-bottom:4px"/>`:`<div class="m-org-name">${d.org}</div>`}<div class="m-org-line"></div><div class="m-org-sub">${CERT_TYPES[certType]}</div></div><div class="m-type-block"><div class="m-type-label">Issued</div><div class="m-type-date">${d.endDate}</div></div></div><div class="m-mid"><div class="m-certify">This certificate is awarded to</div><div class="m-name">${d.name}</div><div class="m-accent"></div>${midDetail}</div><div class="m-bottom"><div style="display:flex;gap:32px"><div class="m-sig-block"><div class="m-sig-accent"></div><div class="m-sig-name">${d.s1n||'Authorised Signatory'}</div><div class="m-sig-line"></div><div class="m-sig-label">${d.s1n||'Authorised Signatory'}</div><div class="m-sig-title">${d.s1t||''}</div></div>${hasSig2?`<div class="m-sig-block"><div class="m-sig-accent"></div><div class="m-sig-name">${d.s2n}</div><div class="m-sig-line"></div><div class="m-sig-label">${d.s2n}</div><div class="m-sig-title">${d.s2t}</div></div>`:''}</div><div class="m-stamp">🏅</div></div></div><div class="m-certid">ID: ${d.cid} · CertifyPro</div></div>`;
 }
 
-function buildCert(d){
-  const builders={royal:buildRoyal,wave:buildWave,navy:buildNavy,emerald:buildEmerald,parchment:buildParchment,modern:buildModern};
-  return (builders[certTpl]||buildRoyal)(d);
+function buildViolet(d){
+  const period=d.startDate&&d.endDate?`${d.startDate} — ${d.endDate}`:(d.endDate||'');
+  let midContent='';
+  if(certType==='internship') midContent=`<div class="v-detail">has successfully completed an internship at<br><b style="color:#c4b5fd">${d.org}</b></div>${d.role?`<div class="v-highlight">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}${period?`<div class="v-dates">${period}</div>`:''}`;
+  else if(certType==='job') midContent=`<div class="v-detail">was employed with excellence at<br><b style="color:#c4b5fd">${d.org}</b></div>${d.role?`<div class="v-highlight">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}${period?`<div class="v-dates">${period}</div>`:''}`;
+  else if(certType==='course') midContent=`<div class="v-detail">has successfully completed the course</div>${d.course?`<div class="v-highlight">"${d.course}"</div>`:''}${d.grade?`<div class="v-dates">Grade: ${d.grade}${d.hours?' · '+d.hours:''}</div>`:''}${d.endDate?`<div class="v-dates">Completed on ${d.endDate}</div>`:''}`;
+  else if(certType==='participation') midContent=`<div class="v-detail">has honourably participated in</div>${d.event?`<div class="v-highlight">"${d.event}"</div>`:''}${d.role?`<div class="v-dates">${d.role}</div>`:''}${d.endDate?`<div class="v-dates">Held on ${d.endDate}</div>`:''}`;
+  else midContent=`<div class="v-detail">is hereby offered the position of</div>${d.role?`<div class="v-highlight">${d.role}${d.dept?' — '+d.dept:''}</div>`:''}${d.salary?`<div class="v-dates">CTC: ${d.salary}</div>`:''}${d.joinDate?`<div class="v-dates">Joining: ${d.joinDate}</div>`:''}`;
+  const hasSig2=d.s2n.trim()!=='';
+  return `<div class="cert-root cert-violet"><div class="v-outer"></div><div class="v-inner"></div><div class="v-glow"></div><div class="v-content"><div class="v-top">${d.logo?`<div class="v-seal"><img src="${d.logo}" style="width:36px;height:36px;border-radius:50%;object-fit:cover"/></div>`:`<div class="v-seal">${CERT_ICONS[certType]}</div>`}<div class="v-org">${d.org}</div><div class="v-line"></div><div class="v-certtype">${CERT_TYPES[certType]||'Certificate'}</div></div><div class="v-mid"><div class="v-presenting">This certificate is proudly presented to</div><div class="v-name">${d.name}</div><div class="v-nameline"></div>${midContent}</div><div class="v-bottom">${sigBlock(d.s1n,d.s1t,'v')}<div class="v-center-seal"><div class="v-seal-circle">✨</div></div>${hasSig2?sigBlock(d.s2n,d.s2t,'v'):`<div style="flex:1"></div>`}</div></div><div class="v-certid">ID: ${d.cid}</div><div class="v-brand">CertifyPro™</div></div>`;
 }
 
-// ── Render helpers ──────────────────────────────────────────────
-function renderScaled(container, scale=1){
+function buildCert(){
   const d=D();
-  const html=buildCert(d);
-  container.innerHTML=html;
-  const cert=container.querySelector('.cert-root');
-  if(cert&&scale!==1){
-    cert.style.transform=`scale(${scale})`;
-    cert.style.transformOrigin='top left';
-    container.style.width=(842*scale)+'px';
-    container.style.height=(596*scale)+'px';
-    container.style.overflow='hidden';
+  switch(certTpl){
+    case'royal': return buildRoyal(d);
+    case'wave': return buildWave(d);
+    case'navy': return buildNavy(d);
+    case'emerald': return buildEmerald(d);
+    case'parchment': return buildParchment(d);
+    case'modern': return buildModern(d);
+    case'violet': return buildViolet(d);
+    default: return buildRoyal(d);
   }
 }
 
+// ── LIVE PREVIEW ───────────────────────────────────────────────
+let updateTimer;
 function liveUpdate(){
-  const wrap=ge('liveWrap');
-  const availW=wrap.clientWidth-4||500;
-  const scale=Math.min(availW/842,1);
-  renderScaled(wrap,scale);
-  wrap.style.height=Math.round(596*scale)+'px';
+  clearTimeout(updateTimer);
+  updateTimer=setTimeout(()=>{
+    const html=buildCert();
+    const wrap=ge('liveWrap');
+    ge('previewEmpty').style.display='none';
+    wrap.innerHTML=html;
+    const cert=wrap.querySelector('.cert-root');
+    if(!cert)return;
+    const W=wrap.clientWidth-20;
+    const scale=Math.min(W/842,1);
+    cert.style.transformOrigin='top left';
+    cert.style.transform=`scale(${scale})`;
+    cert.style.marginBottom=`${-(596*(1-scale))}px`;
+  },60);
 }
 
+// ── MODAL ──────────────────────────────────────────────────────
 function openModal(){
+  const html=buildCert();
   const wrap=ge('modalWrap');
-  const availW=Math.min(window.innerWidth-80,860)-32;
-  const scale=Math.min(availW/842,1);
-  renderScaled(wrap,scale);
-  wrap.style.height=Math.round(596*scale)+'px';
+  wrap.innerHTML=html;
+  const cert=wrap.querySelector('.cert-root');
+  if(cert){cert.style.display='block';cert.style.margin='0 auto';}
   ge('modal').classList.add('open');
+  document.body.style.overflow='hidden';
 }
-function closeModal(){ge('modal').classList.remove('open');}
+function closeModal(){
+  ge('modal').classList.remove('open');
+  document.body.style.overflow='';
+}
 ge('modal').addEventListener('click',e=>{if(e.target===ge('modal'))closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
-// ── Download ────────────────────────────────────────────────────
-async function captureAndDownload(type){
-  const target=ge('exportTarget');
-  renderScaled(target,2);
-  await new Promise(r=>setTimeout(r,600)); // wait for fonts
+// ── EXPORT ─────────────────────────────────────────────────────
+async function getExportEl(){
+  const el=ge('exportTarget');
+  el.innerHTML=buildCert();
+  const cert=el.querySelector('.cert-root');
+  if(cert){cert.style.position='static';cert.style.transform='none';}
+  await new Promise(r=>setTimeout(r,300));
+  return cert||el.firstChild;
+}
 
-  const cert=target.querySelector('.cert-root');
-  if(!cert){showToast('Error: certificate not found');return;}
-
-  showToast('Generating, please wait…');
-
+async function dlPDF(){
+  showToast('⏳ Generating PDF…');
   try{
-    const canvas=await html2canvas(cert,{
-      scale:2,
-      useCORS:true,
-      allowTaint:true,
-      backgroundColor:null,
-      logging:false,
-      width:842*2,
-      height:596*2,
-      windowWidth:842*2,
-      windowHeight:596*2,
-    });
-
-    if(type==='png'){
-      const a=document.createElement('a');
-      a.download=`certificate_${(gv('fName')||'download').replace(/\s+/g,'_')}.png`;
-      a.href=canvas.toDataURL('image/png',1.0);
-      document.body.appendChild(a);a.click();document.body.removeChild(a);
-      showToast('✅ PNG downloaded!');
-    } else {
-      const {jsPDF}=window.jspdf;
-      const pdf=new jsPDF({orientation:'landscape',unit:'mm',format:'a4'});
-      const imgData=canvas.toDataURL('image/png',1.0);
-      const pW=pdf.internal.pageSize.getWidth();
-      const pH=pdf.internal.pageSize.getHeight();
-      pdf.addImage(imgData,'PNG',0,0,pW,pH);
-      pdf.save(`certificate_${(gv('fName')||'download').replace(/\s+/g,'_')}.pdf`);
-      showToast('✅ PDF downloaded!');
-    }
-  } catch(err){
-    console.error(err);
-    showToast('Download failed. Try again.');
-  }
-  target.innerHTML='';
+    const el=await getExportEl();
+    const canvas=await html2canvas(el,{scale:2,useCORS:true,allowTaint:true,backgroundColor:null,width:842,height:596});
+    const {jsPDF}=window.jspdf;
+    const pdf=new jsPDF({orientation:'landscape',unit:'px',format:[842,596]});
+    pdf.addImage(canvas.toDataURL('image/png'),0,0,842,596);
+    const name=(gv('fName')||'certificate').toLowerCase().replace(/\s+/g,'-');
+    pdf.save(`certifypro-${name}.pdf`);
+    showToast('✅ PDF downloaded!','success');
+  }catch(err){showToast('❌ Export failed. Try again.','error');console.error(err);}
 }
 
-function dlPDF(){captureAndDownload('pdf');}
-function dlPNG(){captureAndDownload('png');}
-
-function showToast(msg){
-  const t=ge('toast');t.textContent=msg;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3500);
+async function dlPNG(){
+  showToast('⏳ Generating PNG…');
+  try{
+    const el=await getExportEl();
+    const canvas=await html2canvas(el,{scale:2,useCORS:true,allowTaint:true,backgroundColor:null,width:842,height:596});
+    const a=document.createElement('a');
+    const name=(gv('fName')||'certificate').toLowerCase().replace(/\s+/g,'-');
+    a.download=`certifypro-${name}.png`;
+    a.href=canvas.toDataURL('image/png');
+    a.click();
+    showToast('✅ PNG downloaded!','success');
+  }catch(err){showToast('❌ Export failed. Try again.','error');console.error(err);}
 }
 
-// ── Tabs ────────────────────────────────────────────────────────
+// ── TOAST ───────────────────────────────────────────────────────
+let toastTimer;
+function showToast(msg,type=''){
+  clearTimeout(toastTimer);
+  const t=ge('toast');
+  t.textContent=msg;
+  t.className='toast show '+(type||'');
+  toastTimer=setTimeout(()=>t.className='toast',3000);
+}
+
+// ── FAQ ─────────────────────────────────────────────────────────
+function toggleFaq(el){el.closest('.faq-item').classList.toggle('open')}
+
+// ── PILL / TEMPLATE SELECTION ──────────────────────────────────
 document.querySelectorAll('.pill').forEach(p=>{
-  p.addEventListener('click',()=>{
+  p.onclick=()=>{
     document.querySelectorAll('.pill').forEach(x=>x.classList.remove('on'));
-    p.classList.add('on');certType=p.dataset.type;renderDyn();liveUpdate();
-  });
+    p.classList.add('on');
+    certType=p.dataset.type;
+    renderDyn();
+    liveUpdate();
+  };
 });
 document.querySelectorAll('.tpl-card').forEach(c=>{
-  c.addEventListener('click',()=>{
+  c.onclick=()=>{
     document.querySelectorAll('.tpl-card').forEach(x=>x.classList.remove('on'));
-    c.classList.add('on');certTpl=c.dataset.tpl;liveUpdate();
-  });
+    c.classList.add('on');
+    certTpl=c.dataset.tpl;
+    liveUpdate();
+  };
 });
 
-// ── Init ────────────────────────────────────────────────────────
+// ── INIT ────────────────────────────────────────────────────────
 renderDyn();
-sv('fEnd',new Date().toISOString().slice(0,10));
-sv('fS1T','HR Manager');
-sv('fS2T','Director');
-// Wait for fonts then render
-document.fonts.ready.then(()=>liveUpdate());
+// Set today's date as default end date
+const today=new Date().toISOString().slice(0,10);
+sv('fEnd',today);
+liveUpdate();
 window.addEventListener('resize',liveUpdate);
 </script>
-
-<section style="max-width:1100px;margin:50px auto;padding:20px;line-height:1.8">
-<h2>Free Certificate Generator Online</h2>
-<p>CertifyPro helps students, educators, trainers, organizations and event organizers create professional certificates online. Generate internship certificates, participation certificates, training certificates and course completion certificates in minutes.</p>
-
-<h2>Internship Certificate Generator</h2>
-<p>Create professional internship completion certificates with customizable company names, internship roles, departments, dates and signatories.</p>
-
-<h2>Course Completion Certificates</h2>
-<p>Generate attractive course completion certificates for online courses, workshops, training programs and educational activities.</p>
-
-<h2>Participation & Training Certificates</h2>
-<p>Create certificates for seminars, webinars, competitions, workshops, bootcamps and corporate training sessions.</p>
-
-<h2>Frequently Asked Questions</h2>
-<h3>Is CertifyPro free?</h3>
-<p>Yes. You can create and download certificates for free.</p>
-
-<h3>Can I export certificates as PDF?</h3>
-<p>Yes. Certificates can be downloaded as PDF and PNG files.</p>
-
-<h3>Do I need to create an account?</h3>
-<p>No signup is required.</p>
-</section>
-
-<section style="max-width:1000px;margin:40px auto;padding:20px;">
-<h2>Popular Certificate Generators</h2>
-
-<ul>
-<li><a href="/internship-certificate-generator.html">Internship Certificate Generator</a></li>
-
-<li><a href="/course-certificate-generator.html">Course Certificate Generator</a></li>
-
-<li><a href="/training-certificate-generator.html">Training Certificate Generator</a></li>
-
-<li><a href="/participation-certificate-generator.html">Participation Certificate Generator</a></li>
-
-<li><a href="/appreciation-certificate-generator.html">Appreciation Certificate Generator</a></li>
-</ul>
-</section>
-
 </body>
 </html>
