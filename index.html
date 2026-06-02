@@ -18,13 +18,24 @@
 <meta property="og:title" content="CertifyPro – Free Certificate Generator Online"/>
 <meta property="og:description" content="Generate professional certificates instantly. Free PDF download, no signup required."/>
 <meta property="og:type" content="website"/>
+<meta property="og:url" content="https://mycertifypro.netlify.app/"/>
+<meta property="og:image" content="https://mycertifypro.netlify.app/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="CertifyPro – Free Certificate Generator Online"/>
+<meta name="twitter:description" content="Generate professional certificates instantly. Free PDF download, no signup required."/>
+<meta name="twitter:image" content="https://mycertifypro.netlify.app/og-image.png"/>
 <link rel="canonical" href="https://mycertifypro.netlify.app/"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%238a6e22'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='serif' font-weight='bold' fill='%23f0d880'>C</text></svg>"/>
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%238a6e22'/><text x='90' y='125' text-anchor='middle' font-size='100' font-family='serif' font-weight='bold' fill='%23f0d880'>C</text></svg>"/>
+<meta name="theme-color" content="#8a6e22"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CertifyPro","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0"},"description":"Free online certificate generator for internship, course, training and participation certificates."}</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Cinzel:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
 
 <style>
 /* ─── TOKENS ──────────────────────────────────────────────── */
@@ -654,9 +665,34 @@ footer{
   .hero{padding-top:32px;padding-bottom:20px}
   .main{padding:0 14px 80px}
 }
+
+/* ─── BACK TO TOP ─────────────────────────────────────────── */
+.back-top{
+  position:fixed;bottom:28px;left:28px;z-index:100;
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gld),var(--gld2));
+  color:#fff;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;box-shadow:0 4px 16px rgba(180,130,30,.35);
+  opacity:0;pointer-events:none;
+  transform:translateY(12px);
+  transition:opacity .3s,transform .3s;
+}
+.back-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.back-top:hover{box-shadow:0 6px 24px rgba(180,130,30,.5);transform:translateY(-2px)}
+@media(max-width:900px){.back-top{bottom:70px}}
+
+/* ─── SKIP TO CONTENT ─────────────────────────────────────── */
+.skip-link{
+  position:absolute;top:-100%;left:50%;transform:translateX(-50%);
+  background:var(--gld);color:#fff;padding:8px 20px;border-radius:0 0 8px 8px;
+  font-size:13px;font-weight:600;z-index:999;transition:top .2s;
+}
+.skip-link:focus{top:0}
 </style>
 </head>
 <body>
+<a href="#mainContent" class="skip-link">Skip to main content</a>
 
 <!-- HEADER -->
 <header>
@@ -676,7 +712,7 @@ footer{
 </header>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero" id="mainContent">
   <div class="badge">Free · No Login · Instant PDF Download</div>
   <h1>Create Professional<br>Certificates <em>Online in Minutes</em></h1>
   <p>Generate internship, training, participation and course completion certificates instantly. Customize details, live preview and download PDF or PNG for free.</p>
@@ -964,7 +1000,7 @@ footer{
       <a href="training-certificate-generator.html">Training</a>
       <a href="participation-certificate-generator.html">Participation</a>
     </div>
-    <div class="footer-copy">© 2025 CertifyPro · Free · No Login · No Watermark</div>
+    <div class="footer-copy">© 2025–<script>document.write(new Date().getFullYear())</script> CertifyPro · Free · No Login · No Watermark</div>
   </div>
 </footer>
 
@@ -1323,6 +1359,17 @@ const today=new Date().toISOString().slice(0,10);
 sv('fEnd',today);
 liveUpdate();
 window.addEventListener('resize',liveUpdate);
+
+// ── BACK TO TOP ──────────────────────────────────────────────
+const backTopBtn=document.createElement('button');
+backTopBtn.className='back-top';
+backTopBtn.innerHTML='↑';
+backTopBtn.setAttribute('aria-label','Back to top');
+backTopBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+document.body.appendChild(backTopBtn);
+window.addEventListener('scroll',()=>{
+  backTopBtn.classList.toggle('show',window.scrollY>400);
+},{passive:true});
 </script>
 </body>
 </html>
