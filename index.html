@@ -405,6 +405,26 @@ textarea{resize:vertical;min-height:56px;line-height:1.6}
 }
 .popular-links a:hover{border-color:var(--gld);color:var(--gld);background:var(--gld-bg)}
 
+/* ─── EXPLORE GENERATORS GRID ─────────────────────────────── */
+.explore-section{margin-top:36px}
+.explore-section .sec-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gld);margin-bottom:8px}
+.explore-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:16px}
+.explore-card{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:18px 20px;border-radius:var(--r);border:1px solid var(--brd);
+  background:var(--sur);transition:var(--trans);text-decoration:none;
+}
+.explore-card:hover{border-color:var(--gld);transform:translateY(-3px);box-shadow:var(--sh)}
+.explore-icon{
+  width:40px;height:40px;border-radius:10px;flex-shrink:0;
+  background:var(--gld-bg);border:1px solid var(--gld-brd);
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.explore-card h3{font-size:13px;font-weight:600;color:var(--txt);margin-bottom:4px}
+.explore-card p{font-size:12px;color:var(--txt2);line-height:1.55;margin:0}
+.explore-card .arrow{margin-left:auto;color:var(--txt3);font-size:14px;align-self:center;flex-shrink:0;transition:color .2s}
+.explore-card:hover .arrow{color:var(--gld)}
+
 /* ─── FOOTER ──────────────────────────────────────────────── */
 footer{
   border-top:1px solid var(--brd);background:var(--sur2);
@@ -978,14 +998,36 @@ footer{
     </div>
   </div>
 
-  <div style="margin-top:32px">
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:12px">Popular Certificate Generators</h2>
-    <div class="popular-links">
-      <a href="internship-certificate-generator.html">🏢 Internship Certificate Generator</a>
-      <a href="course-certificate-generator.html">📚 Course Certificate Generator</a>
-      <a href="training-certificate-generator.html">🏫 Training Certificate Generator</a>
-      <a href="participation-certificate-generator.html">🏆 Participation Certificate Generator</a>
-      <a href="appreciation-certificate-generator.html">🌟 Appreciation Certificate Generator</a>
+  <div class="explore-section">
+    <div class="sec-label">✦ EXPLORE</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,30px);font-weight:700;margin-bottom:4px">Certificate Generators for Every Need</h2>
+    <p style="font-size:13px;color:var(--txt2);margin-bottom:0">Choose from specialised generators tailored to different certificate types.</p>
+    <div class="explore-grid">
+      <a href="internship-certificate-generator.html" class="explore-card">
+        <div class="explore-icon">🏢</div>
+        <div><h3>Internship Certificate</h3><p>Create completion certificates for interns with company branding, roles, departments and dates.</p></div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="course-certificate-generator.html" class="explore-card">
+        <div class="explore-icon">📚</div>
+        <div><h3>Course Certificate</h3><p>Generate course completion certificates with grades, hours, instructor details and institution logos.</p></div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="training-certificate-generator.html" class="explore-card">
+        <div class="explore-icon">🏫</div>
+        <div><h3>Training Certificate</h3><p>Professional training certificates for corporate workshops, bootcamps and employee development programmes.</p></div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="participation-certificate-generator.html" class="explore-card">
+        <div class="explore-icon">🏆</div>
+        <div><h3>Participation Certificate</h3><p>Recognise attendees at events, hackathons, competitions, seminars and conferences.</p></div>
+        <span class="arrow">→</span>
+      </a>
+      <a href="appreciation-certificate-generator.html" class="explore-card">
+        <div class="explore-icon">🌟</div>
+        <div><h3>Appreciation Certificate</h3><p>Award outstanding contributions and achievements with personalised appreciation certificates.</p></div>
+        <span class="arrow">→</span>
+      </a>
     </div>
   </div>
 </div>
